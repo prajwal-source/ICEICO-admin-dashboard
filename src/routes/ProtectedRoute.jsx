@@ -1,9 +1,9 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 
 const ProtectedRoute = () => {
-  const isAuthenticated = true; // 🔐 replace with real auth logic
+  const isAuth = true; // replace later with real auth
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+  return isAuth ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default ProtectedRoute;

@@ -39,108 +39,116 @@ const Login = () => {
 
     return (
         <>
-       
-         <div className="w-[550px] bg-gray-300 rounded border border-gray-500 shadow-sm overflow-hidden p-2">For logo</div>
-        <div className=" flex items-center justify-center  ">
-             
-            
+            <div className="flex flex-col items-center justify-center mt-20 px-4 space-y-4">
 
-            {/* Login Card */}
-            <div className="w-[550px] bg-white rounded border border-gray-500 shadow-lg overflow-hidden mt-4">
-                
-                {/* Title */}
-                <div className="bg-linear-to-b text-bold text-lg from-gray-50 to-white border-b border-gray-400 px-8 py-3">
-                    <h2 className="text-2xl font-normal text-gray-700">
-                        Login to the Admin&apos;s Room
-                    </h2>
+                {/* Logo */}
+                <div className="w-full sm:w-[450px] md:w-[550px] bg-gray-300 rounded border border-gray-500 shadow-sm overflow-hidden p-2">
+                    For logo
                 </div>
 
-                {/* Form Content */}
-                <div className="px-8 py-8">
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        
-                        <div className="flex gap-8">
-                            {/* Left Side - Form Fields */}
-                            <div className="flex-1 space-y-6">
-                                
-                                {/* Email Field */}
-                                <div className="flex items-start gap-3">
-                                    <label className="w-24 text-sm text-gray-700 pt-1.5 text-right">
-                                        Login or<br />Email
-                                    </label>
-                                    <div className="flex-1">
-                                        <input
-                                            {...register("email")}
-                                            className="w-full h-8 border border-gray-400 px-2 text-sm
-                                                     focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                                        />
-                                        {errors.email && (
-                                            <p className="text-red-500 text-xs mt-1">
-                                                {errors.email.message}
-                                            </p>
-                                        )}
+                {/* Login Card */}
+                <div className="w-full sm:w-[450px] md:w-[550px] bg-white rounded border border-gray-500 shadow-lg overflow-hidden">
+
+                    {/* Title */}
+                    <div className="bg-linear-to-b text-bold text-lg from-gray-50 to-white border-b border-gray-400 px-6 py-3">
+                        <h2 className="text-xl md:text-2xl font-normal text-gray-700">
+                            Login to the Admin&apos;s Room
+                        </h2>
+                    </div>
+
+                    {/* Content */}
+                    <div className="px-6 py-8">
+                        <form onSubmit={handleSubmit(onSubmit)}>
+
+                            {/* FORM WRAPPER — changes direction on mobile */}
+                            <div className="flex flex-col md:flex-row gap-8">
+
+                                {/* Left side */}
+                                <div className="flex-1 space-y-6">
+
+                                    {/* Email */}
+                                    <div className="flex md:items-start md:flex-row flex-col gap-3">
+                                        <label className="w-24 text-sm text-gray-700 pt-1.5 md:text-right">
+                                            Login or<br />Email
+                                        </label>
+
+                                        <div className="flex-1">
+                                            <input
+                                                {...register("email")}
+                                                className="w-full h-10 border border-gray-400 px-2 text-sm
+                                                  focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                            />
+                                            {errors.email && (
+                                                <p className="text-red-500 text-xs mt-1">
+                                                    {errors.email.message}
+                                                </p>
+                                            )}
+                                        </div>
                                     </div>
+
+                                    {/* Password */}
+                                    <div className="flex md:items-start md:flex-row flex-col gap-3">
+                                        <label className="w-24 text-sm text-gray-700 pt-1.5 md:text-right">
+                                            Password
+                                        </label>
+
+                                        <div className="flex-1">
+                                            <input
+                                                type="password"
+                                                {...register("password")}
+                                                className="w-full h-10 border border-gray-400 px-2 text-sm
+                                             focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                            />
+                                            {errors.password && (
+                                                <p className="text-red-500 text-xs mt-1">
+                                                    {errors.password.message}
+                                                </p>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Submit Button */}
+                                    <div className="flex md:flex-row flex-col items-start md:items-center gap-3">
+                                        <div className="w-30 hidden md:block"></div>
+
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="w-32 h-10 text-sm border border-gray-400 rounded
+                                                   bg-linear-to-b from-gray-100 to-gray-200
+                                                hover:from-gray-200 hover:to-gray-300
+                                                active:from-gray-300 active:to-gray-400
+                                               disabled:opacity-60 disabled:cursor-not-allowed
+                                                   transition-all"
+                                        >
+                                            {isSubmitting ? "Signing in..." : "Sign in"}
+                                        </button>
+                                    </div>
+
                                 </div>
 
-                                {/* Password Field */}
-                                <div className="flex items-start gap-3">
-                                    <label className="w-24 text-sm text-gray-700 pt-1.5 text-right">
-                                        Password
-                                    </label>
-                                    <div className="flex-1">
-                                        <input
-                                            type="password"
-                                            {...register("password")}
-                                            className="w-full h-8 border border-gray-400 px-2 text-sm
-                                                     focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                                        />
-                                        {errors.password && (
-                                            <p className="text-red-500 text-xs mt-1">
-                                                {errors.password.message}
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-
-                                {/* Submit Button */}
-                                <div className="flex items-center gap-3">
-                                    <div className="w-24"></div>
-                                    <button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        className="w-50 h-9 text-sm border border-gray-400 rounded
-                                                 bg-linear-to-b from-gray-100 to-gray-200
-                                                 hover:from-gray-200 hover:to-gray-300
-                                                 active:from-gray-300 active:to-gray-400
-                                                 disabled:opacity-60 disabled:cursor-not-allowed
-                                                 transition-all"
+                                {/* Right side (Forgot Password) — moves down on mobile */}
+                                <div className="md:w-44 pt-1 md:pt-1">
+                                    <a
+                                        href="#"
+                                        className="text-blue-500 hover:text-blue-700 text-md font-medium block mb-2"
                                     >
-                                        {isSubmitting ? "Signing in..." : "Sign in"}
-                                    </button>
+                                        Forgot password?
+                                    </a>
+                                    <p className="text-sm text-gray-800 leading-relaxed">
+                                        You can recover the password to your account.
+                                    </p>
                                 </div>
 
                             </div>
 
-                            {/* Right Side - Forgot Password */}
-                            <div className="w-44 pt-1">
-                                <a 
-                                    href="#" 
-                                    className="text-blue-500 hover:text-blue-700 text-md font-medium block mb-2"
-                                >
-                                    Forgot password?
-                                </a>
-                                <p className="text-sm text-gray-800 leading-relaxed">
-                                    You can recover the password to your account.
-                                </p>
-                            </div>
-                        </div>
+                        </form>
+                    </div>
 
-                    </form>
                 </div>
-
             </div>
-        </div>
-         </>
+        </>
+
     );
 };
 
