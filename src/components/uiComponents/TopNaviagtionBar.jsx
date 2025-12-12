@@ -23,14 +23,14 @@ function TopNaviagtionBar() {
                             <HoverDropDown
                                     label="Settings"
                                     items={[
-                                        { name: "Documents", onClick: () => navigate('/exchange-rates') },
-                                        { name: "Admins Room", onClick: () => navigate('/emails') },
-                                        { name: "Payment Systems", onClick: () => navigate('/promotions') },
-                                        { name: "Servers", onClick: () => navigate('/users') },
-                                        { name: "Account Types", onClick: () => navigate('/ala-report') },
-                                        { name: "Language", onClick: () => navigate('/ala-report') },
-                                        { name: "Payment Methods", onClick: () => navigate('/ala-report') },
-                                        { name: "Login Confirmation", onClick: () => navigate('/ala-report') },
+                                        { name: "Documents", onClick: () => navigate('/settings/documents_manage') },
+                                        { name: "Admins Room", onClick: () => navigate('/settings/settings') },
+                                        { name: "Payment Systems", onClick: () => navigate('/settings/merchants_manage') },
+                                        { name: "Servers", onClick: () => navigate('/settings/servers_manage') },
+                                        { name: "Account Types", onClick: () => navigate('/settings/types') },
+                                        { name: "Language", onClick: () => navigate('/settings/languages_manage') },
+                                        { name: "Payment Methods", onClick: () => navigate('/settings/payment_methods') },
+                                        { name: "Login Confirmation", onClick: () => navigate('/settings/authentication_settings') },
                                         
                                     ]}
                                 />
