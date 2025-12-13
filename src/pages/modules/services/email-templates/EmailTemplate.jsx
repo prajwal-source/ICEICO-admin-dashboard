@@ -4,6 +4,7 @@ import DataTable from '../../../../components/uiComponents/DataTable';
 import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { MdHelpOutline } from 'react-icons/md';
+import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
 
 function EmailTemplate() {
 
@@ -25,15 +26,16 @@ function EmailTemplate() {
     return (
         <div className="min-h-screen p-2 md:p-0">
 
+            {/* Breadcrumb */}
+            <Breadcrumb
+                items={[
+                    { label: "Homepage", onClick: () => navigate("/service/user_manage") },
+                    { label: "Service" },
+                    { label: "Email templates" } // last one → inactive
+                ]}
+            />
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
-
-                {/* Breadcrumb */}
-                <div className="text-sm mb-4 flex flex-wrap gap-1 md:gap-3">
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Homepage</button>
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Service</button>
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Email Templates</button>
-                </div>
 
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
@@ -43,18 +45,19 @@ function EmailTemplate() {
 
                 </div>
 
-
-                <div className="bg-gray-100  border rounded p-1 mb-4">
+                <div className="bg-gray-100 border rounded p-3 sm:p-0 mb-4">
                     <form
                         onSubmit={handleSubmit}
-                        className="space-y-6 p-6 shadow rounded w-full text-sm"
+                        className="space-y-6 p-4  rounded w-full text-sm max-w-3xl mx-auto"
                     >
+
                         {/* Recipient */}
-                        <div className='flex justify-start ml-30 items-baseline-last text-center gap-4'>
-                            <div className=''>Recipient : </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4 items-center">
+                            <label className="break-words">Recipient :</label>
+
                             <select
                                 name="recipient"
-                                className="border w-100 ml-1 px-3 py-2 rounded bg-white"
+                                className="border w-full min-w-0 px-3 py-2 rounded bg-white"
                             >
                                 <option>All</option>
                                 <option>Admins</option>
@@ -64,12 +67,11 @@ function EmailTemplate() {
 
 
                         {/* Template */}
-
-                        <div className='flex justify-start ml-30 items-baseline-last text-center gap-4'>
-                            <div className=''>Template : </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4 items-center">
+                            <label>Template :</label>
                             <select
-                                name="recipient"
-                                className="border w-100 px-3 ml-1 py-2 rounded bg-white"
+                                name="template"
+                                className="border w-full px-3 py-2 rounded bg-white"
                             >
                                 <option>Dummy-1</option>
                                 <option>Dummy-2</option>
@@ -78,74 +80,75 @@ function EmailTemplate() {
                         </div>
 
                         {/* Send letters */}
-                        <div className="flex justify-start ml-30 items-center text-center gap-1">
-                            <label className="">Send letters</label>
-                            <div className="cursor-pointer  "
-                                title="If checked, emails will be sent automatically.">
-                                  <MdHelpOutline size={20} className="text-gray-500 cursor-pointer" />
+                        <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4 items-center">
+                            <label className="flex items-center sm:ml-3 gap-2">
+                                Send letters
+                                <MdHelpOutline
+                                    size={18}
+                                    title="If checked, emails will be sent automatically."
+                                    className="text-gray-500"
+                                />
 
-                            </div>
-                           
-                            <input type="checkbox" name="sendLetters" className="w-4 h-4" />
+                            <input
+                                type="checkbox"
+                                name="sendLetters"
+                                className="w-4 h-4"
+                            />
+                            </label>
                         </div>
 
                         {/* Language */}
-                        <div className='flex justify-start ml-30 items-baseline-last text-center gap-4'>
-                            <div className=''>Language : </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4 items-center">
+                            <label>Language :</label>
                             <select
-                                name="recipient"
-                                className="border w-100 px-3 py-2 rounded bg-white"
+                                name="language"
+                                className="border w-full px-3 py-2 rounded bg-white"
                             >
                                 <option>English</option>
-
                             </select>
                         </div>
 
                         {/* Subject */}
-                        <div className='flex justify-start ml-30 items-baseline-last text-center gap-4'>
-                            <div className=''>Subject : </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4 items-center">
+                            <label>Subject :</label>
                             <input
                                 name="subject"
-                                className="border w-100 px-3 ml-4 py-2 rounded bg-white"
+                                className="border w-full px-3 py-2 rounded bg-white"
                                 placeholder="Enter email subject"
                             />
                         </div>
 
-                        {/* TEXT AREA WITH TOOLBAR */}
-                        <div className='flex justify-start ml-30 items-baseline-last text-center gap-4'>
-                            <div>Text : </div>
-                            {/* Textarea */}
+                        {/* Text */}
+                        <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4">
+                            <label className="pt-2">Text :</label>
                             <textarea
-
+                                rows={8}
                                 onChange={(e) => setText(e.target.value)}
-                                rows={10}
-                                className="border w-150 ml-9 p-3 rounded bg-white"
+                                className="border w-full p-3 rounded bg-white"
                                 placeholder="Write your email content here..."
-                            ></textarea>
+                            />
                         </div>
 
-                        {/* Submit button */}
-                        <div className='flex justify-start ml-80 gap-20 mt-10'>
-                            <button className='mb-20 border px-6 py-2 rounded bg-gray-200 hover:bg-gray-300'
-                                onClick={() => navigate('/service/exchange-rates')}>
+                        {/* Buttons */}
+                        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+                            <button
+                                type="button"
+                                className="border px-6 py-2 rounded bg-gray-200 hover:bg-gray-300"
+                                onClick={() => navigate("/service/exchange-rates")}
+                            >
                                 Test
                             </button>
 
-                            <button className='mb-20 border px-6 py-2 rounded bg-gray-200 hover:bg-gray-300'
-                                onClick={() => navigate('/service/exchange-rates')}>
+                            <button
+                                type="submit"
+                                className="border px-6 py-2 rounded bg-gray-200 hover:bg-gray-300"
+                            >
                                 Save
                             </button>
-
-
                         </div>
 
                     </form>
-
-
                 </div>
-
-
-
 
             </div>
         </div>

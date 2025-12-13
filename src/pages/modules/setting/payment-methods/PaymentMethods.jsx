@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Breadcrumb from "../../../../components/uiComponents/BreadCrumb";
 function PaymentMethods() {
   const [activeTab, setActiveTab] = useState("depositing");
   const [language, setLanguage] = useState("English");
@@ -53,16 +54,15 @@ function PaymentMethods() {
   return (
     <div className="min-h-screen p-2 md:p-0">
 
+      <Breadcrumb
+        items={[
+          { label: "Homepage", onClick: () => navigate("/service/user_manage") },
+          { label: "Settings" },
+          { label: "Payment Methods" } // last one → inactive
+        ]}
+      />
       {/* Main Box */}
       <div className="bg-white shadow-md rounded border px-4 py-3">
-
-
-        {/* Breadcrumb */}
-        <div className="text-sm mb-4 flex flex-wrap gap-1 md:gap-3">
-          <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Homepage</button>
-          <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Settings</button>
-          <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Payment methods</button>
-        </div>
 
         {/* Title + Create User */}
         <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
@@ -70,81 +70,95 @@ function PaymentMethods() {
             Payment methods
           </h2>
         </div>
-        {/* Tabs */}
-        <div className="flex gap-4 mb-6">
+        {/* ================= TABS ================= */}
+        <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
+
           <button
-            className={`px-4 py-2 border rounded ${activeTab === "withdrawal" ? "bg-gray-200" : ""}`}
+            className={`px-4 py-2 border rounded ${activeTab === "withdrawal" ? "bg-gray-200" : ""
+              }`}
             onClick={() => setActiveTab("withdrawal")}
           >
             Depositing
           </button>
+
           <button
-            className={`px-4 py-2 border rounded ${activeTab === "depositing" ? "bg-gray-200" : ""}`}
+            className={`px-4 py-2 border rounded ${activeTab === "depositing" ? "bg-gray-200" : ""
+              }`}
             onClick={() => setActiveTab("depositing")}
           >
             Withdrawal
           </button>
-
         </div>
 
-        {/* Language */}
-        <div className='flex justify-start items-baseline-last text-center gap-4 mb-8'>
-          <div className=''>Language : </div>
-          <select
-            name="userVerification"
-            className="border w-100 ml-1 px-3 py-2 rounded bg-white"
-          >
-            <option >
-              English
-            </option>
+
+        {/* ================= LANGUAGE ================= */}
+        <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center mb-8">
+          <label className="sm:text-right font-medium">Language :</label>
+
+          <select className="border w-full sm:w-60 px-3 py-2 rounded bg-white">
+            <option>English</option>
           </select>
         </div>
 
-        {/* PAYMENT GROUPS */}
+        {/* ================= PAYMENT GROUPS ================= */}
         <div className="space-y-6">
           {groups.map((group, groupIndex) => (
-            <div key={group.id} className="border p-4 bg-gray-100 rounded relative">
-
-              {/* Remove group */}
+            <div
+              key={group.id}
+              className="border p-4 bg-gray-100 rounded relative"
+            >
+              {/* Remove Group */}
               <button
-                className="absolute top-2 right-2 text-red-500 text-xl"
+                className="absolute top-2 right-2 text-red-500 text-lg"
                 onClick={() => removeGroup(groupIndex)}
               >
                 ✖
               </button>
 
+              <h4 className="font-semibold mb-4">Payments group</h4>
+
               {/* Group Name */}
-              <div className="mb-2 font-semibold">Payments group</div>
-              {/* Group name */}
-              <div className='flex justify-start ml-30 items-baseline-last text-center gap-4 mb-8'>
-                <div className=''>Group name : </div>
-                <input type="email" name="account" id="" placeholder='Senders Name' className="border w-100 ml-1 px-2 py-1 rounded bg-white text-left" />
+              <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center mb-6">
+                <label className="sm:text-right font-medium">
+                  Group name :
+                </label>
+                <input
+                  type="text"
+                  placeholder="Senders Name"
+                  className="border w-full px-3 py-2 rounded bg-white"
+                />
               </div>
 
               {/* Payment Methods */}
-              {group.methods.map((method, methodIndex) => (
-                <div key={methodIndex} className="flex items-center gap-1 mb-2 ">
-                  <span className="w-32 ml-28">Payment method</span>
-                  <input
-                    className="border px-2 bg-white py-1 w-100 rounded"
-                    value={method}
-                    onChange={(e) =>
-                      updateMethod(groupIndex, methodIndex, e.target.value)
-                    }
-                  />
+              <div className="space-y-4">
+                {group.methods.map((method, methodIndex) => (
+                  <div
+                    key={methodIndex}
+                    className="grid grid-cols-1 sm:grid-cols-[160px_1fr_auto] gap-2 sm:gap-4 items-center"
+                  >
+                    <label className="sm:text-right font-medium">
+                      Payment method :
+                    </label>
 
+                    <input
+                      className="border px-3 py-2 rounded bg-white w-full"
+                      value={method}
+                      onChange={(e) =>
+                        updateMethod(groupIndex, methodIndex, e.target.value)
+                      }
+                    />
 
-                 
-                  {/* Settings Button */}
-                  <button className="border px-3 py-1 rounded bg-gray-200">
-                    Settings ▾
-                  </button>
-                </div>
-              ))}
-              {/* Add Method Button */}
-              <div className="text-center mt-8">
+                    <button className="border px-3 py-2 rounded bg-gray-200 w-full sm:w-auto">
+                      Settings ▾
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              {/* Add Method */}
+              <div className="flex justify-center mt-6">
                 <button
-                  className="border px-4 py-1 bg-gray-100 rounded shadow"
+                  className="border px-4 py-2 bg-gray-200 rounded shadow"
                   onClick={() => addMethod(groupIndex)}
                 >
                   Add method
@@ -154,8 +168,8 @@ function PaymentMethods() {
           ))}
         </div>
 
-        {/* Add Group Button */}
-        <div className="text-center mt-6">
+        {/* ================= ADD GROUP ================= */}
+        <div className="flex justify-center mt-6">
           <button
             className="border px-6 py-2 bg-gray-200 rounded shadow"
             onClick={addGroup}
@@ -164,9 +178,10 @@ function PaymentMethods() {
           </button>
         </div>
 
+
         {/* Footer Buttons */}
         <div className="flex justify-center gap-4 mt-8">
-          
+
           <button className="px-6 py-2 bg-gray-100 border rounded">Save</button>
           <button className="px-6 py-2 bg-gray-100 border rounded">Cancel</button>
         </div>

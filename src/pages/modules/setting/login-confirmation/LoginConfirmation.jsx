@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import CheckBox from '../../../../components/uiComponents/CheckBox';
 import { useNavigate } from 'react-router';
+import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
 
 function LoginConfirmation() {
   const navigate = useNavigate();
@@ -58,16 +59,15 @@ function LoginConfirmation() {
 
   return (
     <div className="min-h-screen p-2 md:p-0">
-
+      <Breadcrumb
+        items={[
+          { label: "Homepage", onClick: () => navigate("/service/user_manage") },
+          { label: "Settings" },
+          { label: "Login Confirmation" } // last one → inactive
+        ]}
+      />
       {/* Main Box */}
       <div className="bg-white shadow-md rounded border px-4 py-3">
-
-        {/* Breadcrumb */}
-        <div className="text-sm mb-4 flex flex-wrap gap-1 md:gap-3">
-          <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Homepage</button>
-          <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Settings</button>
-          <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Login Confirmation</button>
-        </div>
 
         {/* Title + Create User */}
         <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
@@ -96,141 +96,156 @@ function LoginConfirmation() {
             className="space-y-6 p-6 shadow rounded w-full text-sm"
           >
             <div className='border bg-gray-50 rounded pl-4'>Connection Settings</div>
-            {/* mailing service */}
-            <div className='flex justify-start ml-30 items-baseline-last text-center gap-4'>
-              <div className=''>Mailing Service : </div>
-              <select
-                name="userVerification"
-                className="border w-100 ml-1 px-3 py-2 rounded bg-white"
-              >
-                <option >
-                  UniSender
-                </option>
-              </select>
-            </div>
+            {/* ================= MAILING SERVICE ================= */}
+            <div className="space-y-6">
 
-            {/* API key */}
-            <div className='flex justify-start ml-30 items-baseline-last text-center gap-4'>
-              <div className=''>API Key : </div>
-              <input type="text" name="account" id="" placeholder='API Key' className="border w-100 ml-1 px-2 py-1 rounded bg-white text-left" />
-            </div>
+              {/* Mailing Service */}
+              <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-4 items-center">
+                <label className="sm:text-right font-medium">
+                  Mailing Service :
+                </label>
+                <select className="border w-full sm:w-64 px-3 py-2 rounded bg-white">
+                  <option>UniSender</option>
+                </select>
+              </div>
 
-            {/* Senders Name */}
-            <div className='flex justify-start ml-30 items-baseline-last text-center gap-4'>
-              <div className=''>Senders Name : </div>
-              <input type="email" name="account" id="" placeholder='Senders Name' className="border w-100 ml-1 px-2 py-1 rounded bg-white text-left" />
-            </div>
-
-            {/* Enabled */}
-            <div className='flex justify-start ml-30 items-center text-center gap-4'>
-              <div className=''>Enabled : </div>
-              <input
-                type="checkbox"
-                class="h-4 w-4 pb-2 appearance-none border border-gray-400 rounded-sm bg-white
-               checked:before:content-['✔'] checked:before:text-black 
-               checked:before:flex checked:before:items-center checked:before:justify-center checked:before:mb-2
-               cursor-pointer"
-              />
-            </div>
-
-            {/* Disable automatically */}
-            <div className='flex justify-start ml-30 items-center text-center gap-4'>
-              <div className=''>Disable automatically : </div>
-              <input
-                type="checkbox"
-                class="h-4 w-4 pb-2 appearance-none border border-gray-400 rounded-sm bg-white
-               checked:before:content-['✔'] checked:before:text-black 
-               checked:before:flex checked:before:items-center checked:before:justify-center checked:before:mb-2
-               cursor-pointer"
-              />
-            </div>
-
-            {/* Admins room */}
-            <div>
-              <div className='flex justify-start ml-30 items-center text-center gap-4'>
-                <div className=''>Admins room : </div>
+              {/* API Key */}
+              <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-4 items-center">
+                <label className="sm:text-right font-medium">
+                  API Key :
+                </label>
                 <input
-                  type="checkbox"
-                  class="h-4 w-4 pb-2 appearance-none border border-gray-400 rounded-sm bg-white
-               checked:before:content-['✔'] checked:before:text-black 
-               checked:before:flex checked:before:items-center checked:before:justify-center checked:before:mb-2
-               cursor-pointer"
+                  type="text"
+                  placeholder="API Key"
+                  className="border w-full sm:w-64 px-3 py-2 rounded bg-white"
                 />
               </div>
-              <div className='flex justify-start ml-30 items-center text-center gap-4'>
-                <div className=''>Admins room : </div>
+
+              {/* Sender Name */}
+              <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-4 items-center">
+                <label className="sm:text-right font-medium">
+                  Sender Name :
+                </label>
                 <input
-                  type="checkbox"
-                  class="h-4 w-4 pb-2 appearance-none border border-gray-400 rounded-sm bg-white
-               checked:before:content-['✔'] checked:before:text-black 
-               checked:before:flex checked:before:items-center checked:before:justify-center checked:before:mb-2
-               cursor-pointer"
+                  type="text"
+                  placeholder="Sender Name"
+                  className="border w-full sm:w-64 px-3 py-2 rounded bg-white"
                 />
               </div>
-            </div>
 
-            {/* Brokers Web Office */}
-            <div>
-
-
-              <div className='flex justify-start ml-30 items-center text-center gap-4'>
-                <div className=''>Broker's web office : </div>
+              {/* Enabled */}
+              <div className="grid grid-cols-1 sm:grid-cols-[180px_auto] gap-2 sm:gap-4 items-center">
+                <label className="sm:text-right font-medium">
+                  Enabled :
+                </label>
                 <input
                   type="checkbox"
-                  class="h-4 w-4 pb-2 appearance-none border border-gray-400 rounded-sm bg-white
-               checked:before:content-['✔'] checked:before:text-black 
-               checked:before:flex checked:before:items-center checked:before:justify-center checked:before:mb-2
-               cursor-pointer"
+                  className="
+        h-5 w-5 appearance-none border border-gray-400 rounded-sm bg-white
+        checked:before:content-['✔']
+        checked:before:flex checked:before:items-center checked:before:justify-center
+        cursor-pointer
+      "
                 />
               </div>
-              <div className='flex justify-start ml-30 items-center text-center gap-4'>
-                <div className=''>Broker's web office : </div>
+
+              {/* Disable Automatically */}
+              <div className="grid grid-cols-1 sm:grid-cols-[180px_auto] gap-2 sm:gap-4 items-center">
+                <label className="sm:text-right font-medium">
+                  Disable automatically :
+                </label>
                 <input
                   type="checkbox"
-                  class="h-4 w-4 pb-2 appearance-none border border-gray-400 rounded-sm bg-white
-               checked:before:content-['✔'] checked:before:text-black 
-               checked:before:flex checked:before:items-center checked:before:justify-center checked:before:mb-2
-               cursor-pointer"
+                  className="
+        h-5 w-5 appearance-none border border-gray-400 rounded-sm bg-white
+        checked:before:content-['✔']
+        checked:before:flex checked:before:items-center checked:before:justify-center
+        cursor-pointer
+      "
                 />
               </div>
+
+              {/* Admins Room */}
+              <div className="grid grid-cols-1 sm:grid-cols-[180px_auto] gap-2 sm:gap-4 items-center">
+                <label className="sm:text-right font-medium">
+                  Admins room :
+                </label>
+                <input
+                  type="checkbox"
+                  className="
+        h-5 w-5 appearance-none border border-gray-400 rounded-sm bg-white
+        checked:before:content-['✔']
+        checked:before:flex checked:before:items-center checked:before:justify-center
+        cursor-pointer
+      "
+                />
+              </div>
+
+              {/* Broker's Web Office */}
+              <div className="grid grid-cols-1 sm:grid-cols-[180px_auto] gap-2 sm:gap-4 items-center">
+                <label className="sm:text-right font-medium">
+                  Broker&apos;s web office :
+                </label>
+                <input
+                  type="checkbox"
+                  className="
+        h-5 w-5 appearance-none border border-gray-400 rounded-sm bg-white
+        checked:before:content-['✔']
+        checked:before:flex checked:before:items-center checked:before:justify-center
+        cursor-pointer
+      "
+                />
+              </div>
+
             </div>
 
             <div className='border bg-gray-50 rounded pl-4 mt-1'>Additionally</div>
 
-            {/* Language */}
-            <div className='flex justify-start ml-30 items-baseline-last text-center gap-4'>
-              <div className=''>Language : </div>
-              <select
-                name="userVerification"
-                className="border w-100 ml-1 px-3 py-2 rounded bg-white"
-              >
-                <option >
-                  English
-                </option>
-              </select>
+            {/* ================= LANGUAGE ================= */}
+            <div className="space-y-6">
+
+              {/* Language */}
+              <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-4 items-center">
+                <label className="sm:text-right font-medium">
+                  Language :
+                </label>
+
+                <select
+                  name="language"
+                  className="border w-full sm:w-64 px-3 py-2 rounded bg-white"
+                >
+                  <option>English</option>
+                </select>
+              </div>
+
+              {/* Text Message Template */}
+              <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-4">
+                <label className="sm:text-right font-medium pt-2">
+                  Text message template :
+                </label>
+
+                <textarea
+                  rows={6}
+                  className="w-full bg-white border rounded px-3 py-2"
+                  placeholder="Write your comment..."
+                />
+              </div>
+
+              {/* Help */}
+              <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-4">
+                <label className="sm:text-right font-medium pt-2">
+                  Help :
+                </label>
+
+                <textarea
+                  rows={6}
+                  className="w-full bg-white border rounded px-3 py-2"
+                  placeholder="Write your comment..."
+                />
+              </div>
+
             </div>
 
-
-            {/* Text message template */}
-            <div className='flex justify-start ml-30 items-baseline-last text-center gap-4'>
-              <div className=''>Text message template : </div>
-              <textarea
-                rows="10"
-                class="w-150 bg-white border rounded px-3 py-2"
-                placeholder="Write your comment..."
-              ></textarea>
-
-            </div>
-            {/* Help */}
-            <div className='flex justify-start ml-30 items-baseline-last text-center gap-4'>
-              <div className=''>Help : </div>
-              <textarea
-                rows="10"
-                class="w-150 bg-white border rounded px-3 py-2"
-                placeholder="Write your comment..."
-              ></textarea>
-
-            </div>
             {/* Submit button */}
             <div className='flex justify-center gap-20 mt-10'>
 

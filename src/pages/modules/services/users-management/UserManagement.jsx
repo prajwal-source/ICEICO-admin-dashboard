@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import DataTable from '../../../../components/uiComponents/DataTable';
 import Pagination from '../../../../components/uiComponents/Pagination';
+import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
+import CheckBox from '../../../../components/uiComponents/CheckBox';
+import { useNavigate } from 'react-router';
 
 
 const UserManagement = () => {
-    
+    const navigate = useNavigate();
+    const [isChecked, setIsChecked] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = 2; // or calculate based on data length
 
@@ -77,17 +81,21 @@ const UserManagement = () => {
 
 
     return (
-        <div className="min-h-screen p-2 md:p-0">
+        <div className="min-h-screen p-2 md:p-2">
+
+            {/* Breadcrumb */}
+            <Breadcrumb
+                items={[
+                    { label: "Homepage", onClick: () => navigate("/service/user_manage") },
+                    { label: "Service" },
+                    { label: "Users Management" } // last one → inactive
+                ]}
+            />
 
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
 
-                {/* Breadcrumb */}
-                <div className="text-sm mb-4 flex flex-wrap gap-1 md:gap-3">
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Homepage</button>
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Service</button>
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>User</button>
-                </div>
+
 
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
@@ -95,40 +103,66 @@ const UserManagement = () => {
                         Users management
                     </h2>
 
-                    <button className="cursor-pointer px-4 py-2 bg-gray-200 rounded border hover:bg-gray-300">
+                    <button className="cursor-pointer px-4 py-2 bg-gray-200 rounded border hover:bg-gray-300" onClick={() => navigate('/service/users_create')}>
                         Create user
                     </button>
                 </div>
 
                 {/* Filter Section */}
                 <div className="bg-gray-100 border rounded p-3 mb-6">
-                    <div className="flex flex-wrap items-center gap-4">
-
-                        <label className="flex flex-col md:flex-row gap-1 md:gap-2">
-                            <span>Start:</span>
-                            <input type="text" className=" bg-white border p-1 rounded" />
+                    <div
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:items-center gap-3"
+                    >
+                        {/* Start */}
+                        <label className="flex flex-col sm:flex-row gap-1 sm:gap-2">
+                            <span className="whitespace-nowrap">Start:</span>
+                            <input
+                                type="text"
+                                className="bg-white border p-1 rounded w-full"
+                            />
                         </label>
 
-                        <label className="flex flex-col md:flex-row gap-1 md:gap-2">
-                            <span>End:</span>
-                            <input type="text" className="bg-white border p-1 rounded" />
+                        {/* End */}
+                        <label className="flex flex-col sm:flex-row gap-1 sm:gap-2">
+                            <span className="whitespace-nowrap">End:</span>
+                            <input
+                                type="text"
+                                className="bg-white border p-1 rounded w-full"
+                            />
                         </label>
 
-                        <label className="flex flex-col md:flex-row gap-1 md:gap-2">
-                            <span>Key word:</span>
-                            <input type="text" className="bg-white border p-1 rounded" />
+                        {/* Keyword */}
+                        <label className="flex flex-col sm:flex-row gap-1 sm:gap-2">
+                            <span className="whitespace-nowrap">Key word:</span>
+                            <input
+                                type="text"
+                                className="bg-white border p-1 rounded w-full"
+                            />
                         </label>
 
-                        <label className="flex items-center gap-2">
-                            <span>Payment system tester:</span>
-                            <input type="checkbox" />
-                        </label>
+                        {/* Checkbox */}
+                        <div className="flex items-center">
+                            <CheckBox
+                                label="Payment System tester"
+                                checked={isChecked}
+                                onChange={(e) => setIsChecked(e.target.checked)}
+                            />
+                        </div>
 
-                        <button className="cursor-pointer ml-auto md:ml-20 px-4 py-1 bg-gray-200 hover:bg-gray-300 border rounded">
+                        {/* Search Button */}
+                        <button
+                            className="
+        w-full lg:w-auto
+        px-4 py-2
+        bg-gray-200 hover:bg-gray-300
+        border rounded
+      "
+                        >
                             Search
                         </button>
                     </div>
                 </div>
+
                 {/* Pagination */}
                 <Pagination
                     currentPage={currentPage}

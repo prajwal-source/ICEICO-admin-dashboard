@@ -1,29 +1,42 @@
 function Breadcrumb({ items }) {
   return (
-    <nav className="bg-white rounded py-2 px-4 border">
-      <ol className="flex items-center text-sm">
+    <nav className="bg-white rounded border px-3 py-2">
+      <ol
+        className="
+          flex items-center gap-1
+          text-sm
+          overflow-x-auto
+          whitespace-nowrap
+          scrollbar-hide
+        "
+      >
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
 
           return (
-            <li key={index} className="flex items-center">
-              {/* Breadcrumb link */}
+            <li key={index} className="flex items-center shrink-0">
+              {/* Breadcrumb item */}
               <button
                 disabled={isLast}
                 onClick={item.onClick}
-                className={`px-2 text-gray-700 ${
-                  isLast
-                    ? "font-semibold text-gray-700 cursor-default"
-                    : "hover:underline hover:text-gray-900"
-                }`}
+                className={`
+                  max-w-[120px] sm:max-w-none
+                  truncate
+                  px-2 py-1
+                  ${
+                    isLast
+                      ? "font-semibold text-gray-800 cursor-default"
+                      : "text-gray-600 hover:text-gray-900 hover:underline"
+                  }
+                `}
               >
                 {item.label}
               </button>
 
-              {/* Chevron separator */}
+              {/* Separator */}
               {!isLast && (
                 <svg
-                  className="w-4 h-4 text-gray-400 mx-2"
+                  className="w-4 h-4 text-gray-400 mx-1"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >

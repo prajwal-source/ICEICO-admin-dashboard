@@ -1,16 +1,28 @@
 function SingleCheckbox({ label, checked, onChange }) {
   return (
-    <label className="flex items-center gap-3 cursor-pointer ml-30">
-      {label && <span>{label}</span>}
+    <label
+      className="
+        flex items-center gap-3 cursor-pointer
+        ml-0 sm:ml-30
+        text-sm sm:text-base
+      "
+    >
+      {label && (
+        <span className="select-none">{label}</span>
+      )}
 
       <input
         type="checkbox"
         checked={checked}
         onChange={onChange}
         className="
-          h-4 w-4 appearance-none border border-gray-400 rounded-sm bg-white
-          checked:before:content-['✔'] checked:before:text-black 
-          checked:before:flex checked:before:items-center checked:before:justify-center
+          h-5 w-5 sm:h-4 sm:w-4
+          appearance-none border border-gray-400 rounded-sm bg-white
+          flex items-center justify-center
+          checked:before:content-['✔']
+          checked:before:text-black
+          checked:before:text-sm
+          checked:before:leading-none
           cursor-pointer
         "
       />
@@ -19,3 +31,4 @@ function SingleCheckbox({ label, checked, onChange }) {
 }
 
 export default SingleCheckbox;
+

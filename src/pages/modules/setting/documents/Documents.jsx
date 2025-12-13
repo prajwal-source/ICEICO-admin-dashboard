@@ -35,7 +35,7 @@ function Documents() {
           items={[
             { label: "Homepage", onClick: () => navigate("/service/user_manage") },
             { label: "Setting" },
-            { label: "Create a document" } // last one → inactive
+            { label: "Document" } // last one → inactive
           ]}
         />
       {/* Main Box */}

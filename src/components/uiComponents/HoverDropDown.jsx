@@ -1,40 +1,59 @@
-import React from "react";
+import { useRef, useState } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
-const HoverDropDown = ({ label, items = [] }) => {
-    
+function HoverDropDown({ label, items }) {
+  const [open, setOpen] = useState(false);
+  const closeTimer = useRef(null);
+
+  const handleEnter = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+    }
+    setOpen(true);
+  };
+
+  const handleLeave = () => {
+    closeTimer.current = setTimeout(() => {
+      setOpen(false);
+    }, 150); // small delay = smooth UX
+  };
+
   return (
-    <div className="relative group">
-
-      {/* Menu Button */}
-      <button className="px-3 py-1 bg-gray-200 rounded cursor-pointer border hover:bg-gray-400">
+    <div
+      className="relative inline-block border bg-white rounded "
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      {/* Trigger */}
+      <button
+        type="button"
+        className="flex items-center gap-1 px-2 py-1 hover:bg-gray-400 rounded"
+      >
         {label}
+        <MdKeyboardArrowDown size={18} />
       </button>
 
-      {/* Dropdown Wrapper (keeps hover active & positions menu) */}
-      <div className="absolute left-0 top-full pt-3 hidden group-hover:block z-20">
-
-        {/* Dropdown Box */}
-        <div className="relative bg-black/70 text-white w-48 rounded-md shadow-lg p-2 overflow-visible">
-
-          {/* Arrow FIXED here */}
-          <div className="absolute -top-2 left-4 w-3 h-3 bg-black/70 rotate-45"></div>
-
-          <ul className="flex flex-col gap-2 mt-1">
-            {items.map((item, idx) => (
-              <li
-                key={idx}
-                onClick={item.onClick}
-                className="px-2 py-1 hover:bg-black rounded cursor-pointer"
-              >
-                {item.name}
-              </li>
-            ))}
-          </ul>
-        </div>
-
+      {/* Dropdown */}
+      <div
+        className={`
+          absolute left-0 mt-1 pl-4 pb-2 bg-black/70 text-gray-100 border rounded shadow-md
+          min-w-[200px] z-50
+          
+          ${open ? "opacity-100 visible" : "opacity-0 invisible"}
+        `}
+      >
+        {items.map((item, index) => (
+          <button
+            key={index}
+            onClick={item.onClick}
+            className="block w-full text-left px-3 py-2 hover:bg-black/90"
+          >
+            {item.name}
+          </button>
+        ))}
       </div>
     </div>
   );
-};
+}
 
 export default HoverDropDown;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Pagination from '../../../../components/uiComponents/Pagination';
 import DataTable from '../../../../components/uiComponents/DataTable';
+import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
 
 function ALAReport() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -42,16 +43,16 @@ function ALAReport() {
     ];
     return (
         <div className="min-h-screen p-2 md:p-0">
-
+            {/* Breadcrumb */}
+            <Breadcrumb
+                items={[
+                    { label: "Homepage", onClick: () => navigate("/service/user_manage") },
+                    { label: "Service" },
+                    { label: "Email templates" } // last one → inactive
+                ]}
+            />
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
-
-                {/* Breadcrumb */}
-                <div className="text-sm mb-4 flex flex-wrap gap-1 md:gap-3">
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Homepage</button>
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Service</button>
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>ALA Reports</button>
-                </div>
 
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
@@ -62,14 +63,24 @@ function ALAReport() {
                 </div>
 
                 {/* Filter Section */}
-                <div className="bg-yellow-50 text-sm h-20  hover:bg-yellow-100 border rounded p-1 mb-6">
-                    <span>The report shows the number of active live accounts with the broker. 
-                    <br />
-                        If a trader has made any trading operation or made a deposit within a month, the account will be included in this report. 
-                    <br />
+                {/* Info Section */}
+                <div
+                    className=" bg-yellow-50 border rounded p-3 sm:p-4 text-sm sm:text-base leading-relaxed hover:bg-yellow-100 mb-6 "
+                >
+                    <p>
+                        The report shows the number of active live accounts with the broker.
+                    </p>
+
+                    <p className="mt-2">
+                        If a trader has made any trading operation or made a deposit within a month,
+                        the account will be included in this report.
+                    </p>
+
+                    <p className="mt-2">
                         The data in the report is being updated every day.
-                    </span>
+                    </p>
                 </div>
+
                 {/* Pagination */}
                 <Pagination
                     currentPage={currentPage}

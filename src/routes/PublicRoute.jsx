@@ -9,6 +9,7 @@ const Login = lazy(() => import("../pages/auth/Login"));
 
 // Service Routes
 const UserManagement = lazy(() => import("../pages/modules/services/users-management/UserManagement"));
+const CreateUser=lazy(()=> import('../pages/modules/services/users-management/CreateUser'))
 const ExchangeRate=lazy(()=>import("../pages/modules/services/exchange-rate/ExchangeRate"));
 const ALAReport=lazy(()=>import("../pages/modules/services/ALA Report/ALAReport"));
 const EmailTemplate=lazy(()=>import("../pages/modules/services/email-templates/EmailTemplate"));
@@ -41,6 +42,7 @@ const PublicRoute = () => {
               {/* PAGES INSIDE DASHBOARD */}
               {/* Service Module */}
               <Route path="/service/user_manage" element={<UserManagement />} />
+              <Route path="/service/users_create" element={<CreateUser/>}/>
               <Route path="/service/exchange-rates" element={<ExchangeRate/>}/>
               <Route path="/service/active_accounts_report" element={<ALAReport/>}/>
               <Route path="/service/email_templates" element={<EmailTemplate/>}/>

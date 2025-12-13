@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import DataTable from '../../../../components/uiComponents/DataTable';
 import { useNavigate } from 'react-router';
+import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
 
 const Codes = () => {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
-    const handleSetting=()=>{
-       navigate('/settings/authentication_settings')
+    const handleSetting = () => {
+        navigate('/settings/authentication_settings')
     }
 
-    const handleCodes=()=>{
-       navigate('/settings/authentication_settings/codes')
+    const handleCodes = () => {
+        navigate('/settings/authentication_settings/codes')
     }
 
     const columns = [
@@ -49,15 +50,17 @@ const Codes = () => {
     return (
         <div className="min-h-screen p-2 md:p-0">
 
+            <Breadcrumb
+                items={[
+                    { label: "Homepage", onClick: () => navigate("/service/user_manage") },
+                    { label: "Settings" },
+                    { label: "Codes" } // last one → inactive
+                ]}
+            />
+
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
 
-                {/* Breadcrumb */}
-                <div className="text-sm mb-4 flex flex-wrap gap-1 md:gap-3">
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Homepage</button>
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Settings</button>
-                    <button className='cursor-pointer px-3 py-1 bg-gray-300 hover:bg-gray-400 rounded border'>Codes</button>
-                </div>
 
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
