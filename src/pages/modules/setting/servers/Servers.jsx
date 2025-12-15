@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 
 import DataTable from '../../../../components/uiComponents/DataTable';
 import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
+import { useNavigate } from 'react-router';
 
 function Servers() {
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate=useNavigate();
   const totalPages = 2; // or calculate based on data length
   const columns = [
     { header: "ID", field: "id" },
@@ -40,14 +42,18 @@ function Servers() {
       <div className="bg-white shadow-md rounded border px-4 py-3">
 
         {/* Title + Create User */}
-        <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div className=" flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <h2 className="text-3xl md:text-4xl font-semibold text-gray-700">
             Servers
           </h2>
 
         </div>
-        <div className="mb-5 text-left">
-          <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400 cursor-pointer">
+         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4 pb-4">
+          <button
+            type="submit"
+            onClick={()=>navigate("/settings/servers_create")}
+            className="border px-8 py-2 rounded bg-gray-200 hover:bg-gray-300"
+          >
             Create
           </button>
         </div>

@@ -65,7 +65,9 @@ function ALAReport() {
                 {/* Filter Section */}
                 {/* Info Section */}
                 <div
-                    className=" bg-yellow-50 border rounded p-3 sm:p-4 text-sm sm:text-base leading-relaxed hover:bg-yellow-100 mb-6 "
+                    className="bg-yellow-50 border rounded p-3 sm:p-4 
+             text-sm sm:text-base leading-relaxed 
+             hover:bg-yellow-100 mb-6 text-left"
                 >
                     <p>
                         The report shows the number of active live accounts with the broker.
@@ -80,6 +82,7 @@ function ALAReport() {
                         The data in the report is being updated every day.
                     </p>
                 </div>
+
 
                 {/* Pagination */}
                 <Pagination

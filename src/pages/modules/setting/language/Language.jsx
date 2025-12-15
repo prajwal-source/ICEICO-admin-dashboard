@@ -48,15 +48,6 @@ const columns = [
           </h2>
 
         </div>
-        <div className="mb-5 text-left flex gap-4">
-          <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400 cursor-pointer">
-            Create
-          </button>
-          <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400 cursor-pointer">
-            Connect
-          </button>
-        </div>
-
         {/* DataTable */}
         <div className='mb-8'>
 

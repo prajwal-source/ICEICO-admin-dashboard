@@ -1,31 +1,25 @@
 import React, { useState } from 'react'
-
 import { useForm } from 'react-hook-form';
-import { MdHelpOutline } from 'react-icons/md';
-import CheckBox from '../../../../components/uiComponents/CheckBox';
 import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
+import { useNavigate } from 'react-router';
 
 function CreateDocument() {
-
+    const navigate=useNavigate();
     const checkboxList = [
         "Registration",
         "Account opening",
         "Account depositing",
         "Account depositing",
         "At the bottom on all the pages",
-
     ];
-
     const [checkedValues, setCheckedValues] = useState(
         Array(checkboxList.length).fill(false)
     );
-
     const handleCheckboxChange = (index) => {
         const updated = [...checkedValues];
         updated[index] = !updated[index];
         setCheckedValues(updated);
     };
-
     const { register, setValue, handleSubmit } = useForm({
         defaultValues: {
             recipient: "All",
@@ -36,7 +30,6 @@ function CreateDocument() {
             text: "",
         },
     });
-
     const onSubmit = (data) => {
         console.log("Template Saved:", data);
     };
@@ -49,7 +42,7 @@ function CreateDocument() {
                 items={[
                     { label: "Homepage", onClick: () => navigate("/service/user_manage") },
                     { label: "Setting" },
-                    { label: "Document" }, //
+                    { label: "Document",onClick:()=>navigate('/settings/documents_manage') }, //
                     { label: "Create a document" } // last one → inactive
                 ]}
             />
@@ -90,9 +83,8 @@ function CreateDocument() {
                                 placeholder="Enter description"
                             />
                         </div>
-
                         {/* File Upload */}
-                        <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
+                        <div className="flex lg:pl-25 md:pl-25 sm:pl-2 items-center lg:ml-8 md:ml-8 sm:ml-2  gap-2 sm:gap-4 cursor-pointer ">
                             <label className="sm:text-right">File :</label>
                             <label className="inline-flex w-fit bg-red-900 text-white px-4 py-2 rounded cursor-pointer hover:bg-red-800">
                                 Upload a file
@@ -105,13 +97,20 @@ function CreateDocument() {
                         </div>
 
                         {/* Activity */}
-                        <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
-                            <label className="sm:text-right">Activity :</label>
+                        <label className="flex lg:pl-19 md:pl-20 sm:pl-2 items-center lg:ml-8 md:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                            <span>Activity :</span>
+
                             <input
                                 type="checkbox"
-                                className="   h-5 w-5 appearance-none border border-gray-400 rounded-sm bg-white  flex items-center justify-center  checked:before:content-['✔']  checked:before:text-black  cursor-pointer "
+                                name="sendLetters"
+                                className="peer hidden"
                             />
-                        </div>
+
+                            <span
+                                className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
+                            />
+                        </label>
+
 
                         {/* Sort order */}
                         <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
@@ -124,19 +123,84 @@ function CreateDocument() {
                         </div>
 
                         {/* Checkboxes */}
-                        <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4">
-                            <div className="sm:text-right pt-1">Options :</div>
-                            <div className="space-y-3">
-                                {checkboxList.map((item, index) => (
-                                    <CheckBox
-                                        key={index}
-                                        label={item}
-                                        checked={checkedValues[index]}
-                                        onChange={() => handleCheckboxChange(index)}
-                                    />
-                                ))}
-                            </div>
-                        </div>
+                        {/* Registration */}
+                        <label className="flex lg:pl-19 md:pl-20 sm:pl-2 items-center lg:ml-8 md:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                            <span>Activity :</span>
+
+                            <input
+                                type="checkbox"
+                                name="activity"
+                                className="peer hidden"
+                            />
+                            <span
+                                className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔']  peer-checked:after:text-black peer-checked:after:text-s  "
+                            />
+                        </label>
+
+                        {/* Account opening */}
+                        <label className="flex lg:pl-4 md:pl-5 sm:pl-2 items-center lg:ml-8 md:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                            <span>Account opening :</span>
+
+                            <input
+                                type="checkbox"
+                                name="accountOpening"
+                                className="peer hidden"
+                            />
+
+                            <span
+                                className="  w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'  peer-checked:after:text-black peer-checked:after:text-s"
+                            />
+                        </label>
+
+                        {/* Account depositing */}
+                        <label className="flex lg:pl-1 sm:pl-2 items-center lg:ml-7.5 md:pl-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                            <span>Account depositing :</span>
+
+                            <input
+                                type="checkbox"
+                                name="accountDepositing"
+                                className="peer hidden"
+                            />
+
+                            <span
+                                className=" w-5 h-5  ml-auto sm:ml-0  border bg-white border-gray-400 rounded-sm  flex items-center justify-center  peer-checked:after:content-['✔']  peer-checked:after:text-black  peer-checked:after:text-sm "
+                            />
+                        </label>
+
+                        {/* Withdrawal */}
+                        <label className="flex lg:pl-13 md:pl-14 sm:pl-2 items-center lg:ml-8 md:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                            <span>Withdrawal :</span>
+
+                            <input
+                                type="checkbox"
+                                name="withdrawal"
+                                className="peer hidden"
+                            />
+
+                            <span
+                                className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
+                            />
+                        </label>
+
+
+                        {/* At the bottom on all the pages */}
+                        <label className="flex items-center lg:pl-8 sm:pl-10 lg:ml-5 sm:ml-5 sm:gap-4 cursor-pointer">
+                            <span>
+                                At the bottom on <br /> all the pages
+                            </span>
+
+                            <input
+                                type="checkbox"
+                                name="sendLetters"
+                                className="peer hidden"
+                            />
+
+                            <span
+                                className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-sm"
+                            />
+                        </label>
+
+
 
                         {/* Submit */}
                         <div className="flex justify-center pt-6">

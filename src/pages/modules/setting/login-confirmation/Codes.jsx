@@ -79,15 +79,15 @@ const Codes = () => {
                 </div>
 
                 {/* Filter Section */}
-                <div className="bg-gray-100 border rounded p-3 mb-6">
-                    <div className="flex flex-wrap items-center gap-4">
+                <div className="bg-gray-100 border rounded p-3 mb-6 ">
+                    <div className="flex flex-wrap items-center text-center gap-2">
 
+                            <span className=''>Key word:</span>
                         <label className="flex flex-col md:flex-row gap-1 md:gap-2">
-                            <span>Key word:</span>
                             <input type="text" className="bg-white border p-1 rounded" />
                         </label>
 
-                        <button className="cursor-pointer ml-auto md:ml-20 px-4 py-1 bg-gray-300 hover:bg-gray-400 border rounded">
+                        <button className="cursor-pointer ml-20 md:ml-20 px-6 py-1 bg-gray-300 hover:bg-gray-400 border rounded">
                             Search
                         </button>
                     </div>

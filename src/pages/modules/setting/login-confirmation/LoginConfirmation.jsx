@@ -97,7 +97,8 @@ function LoginConfirmation() {
           >
             <div className='border bg-gray-50 rounded pl-4'>Connection Settings</div>
             {/* ================= MAILING SERVICE ================= */}
-            <div className="space-y-6">
+            <div className="space-y-6 ml-0 lg:ml-50">
+
 
               {/* Mailing Service */}
               <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-4 items-center">
@@ -134,75 +135,65 @@ function LoginConfirmation() {
               </div>
 
               {/* Enabled */}
-              <div className="grid grid-cols-1 sm:grid-cols-[180px_auto] gap-2 sm:gap-4 items-center">
-                <label className="sm:text-right font-medium">
-                  Enabled :
-                </label>
+
+              <label className="flex lg:pl-23 md:pl-23 sm:pl-2 items-center lg:ml-8 md:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                <span className='font-medium'>Enabled :</span>
                 <input
                   type="checkbox"
-                  className="
-        h-5 w-5 appearance-none border border-gray-400 rounded-sm bg-white
-        checked:before:content-['✔']
-        checked:before:flex checked:before:items-center checked:before:justify-center
-        cursor-pointer
-      "
+                  name="sendLetters"
+                  className="peer hidden"
                 />
-              </div>
+                <span
+                  className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
+                />
+              </label>
 
               {/* Disable Automatically */}
-              <div className="grid grid-cols-1 sm:grid-cols-[180px_auto] gap-2 sm:gap-4 items-center">
-                <label className="sm:text-right font-medium">
-                  Disable automatically :
-                </label>
+              <label className="flex lg:pl-2 sm:pl-2 items-center lg:ml-8 md:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                <span className='font-medium'>Disable Automatically :</span>
                 <input
                   type="checkbox"
-                  className="
-        h-5 w-5 appearance-none border border-gray-400 rounded-sm bg-white
-        checked:before:content-['✔']
-        checked:before:flex checked:before:items-center checked:before:justify-center
-        cursor-pointer
-      "
+                  name="sendLetters"
+                  className="peer hidden"
                 />
-              </div>
+                <span
+                  className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
+                />
+              </label>
 
               {/* Admins Room */}
-              <div className="grid grid-cols-1 sm:grid-cols-[180px_auto] gap-2 sm:gap-4 items-center">
-                <label className="sm:text-right font-medium">
-                  Admins room :
-                </label>
+              <label className="flex lg:pl-14 md:pl-14 sm:pl-2 items-center lg:ml-8 md:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                <span className='font-medium'>Admins Room :</span>
                 <input
                   type="checkbox"
-                  className="
-        h-5 w-5 appearance-none border border-gray-400 rounded-sm bg-white
-        checked:before:content-['✔']
-        checked:before:flex checked:before:items-center checked:before:justify-center
-        cursor-pointer
-      "
+                  name="sendLetters"
+                  className="peer hidden"
                 />
-              </div>
+                <span
+                  className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
+                />
+              </label>
 
               {/* Broker's Web Office */}
-              <div className="grid grid-cols-1 sm:grid-cols-[180px_auto] gap-2 sm:gap-4 items-center">
-                <label className="sm:text-right font-medium">
-                  Broker&apos;s web office :
-                </label>
+              <label className="flex lg:pl-6 md:pl-5 sm:pl-2 items-center lg:ml-8 md:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                <span className='font-medium'>Broker's Web Office :</span>
                 <input
                   type="checkbox"
-                  className="
-        h-5 w-5 appearance-none border border-gray-400 rounded-sm bg-white
-        checked:before:content-['✔']
-        checked:before:flex checked:before:items-center checked:before:justify-center
-        cursor-pointer
-      "
+                  name="sendLetters"
+                  className="peer hidden"
                 />
-              </div>
+                <span
+                  className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
+                />
+              </label>
 
             </div>
 
             <div className='border bg-gray-50 rounded pl-4 mt-1'>Additionally</div>
 
             {/* ================= LANGUAGE ================= */}
-            <div className="space-y-6">
+            <div className="space-y-6 ml-0 lg:ml-50">
+
 
               {/* Language */}
               <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-4 items-center">

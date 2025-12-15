@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 
 import DataTable from '../../../../components/uiComponents/DataTable';
 import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
+import { useNavigate } from 'react-router';
 
 function Promotions() {
      const [currentPage, setCurrentPage] = useState(1);
+     const navigate=useNavigate();
         const totalPages = 2; // or calculate based on data length
         const columns = [
             { header: "Conversion From", field: "from" },

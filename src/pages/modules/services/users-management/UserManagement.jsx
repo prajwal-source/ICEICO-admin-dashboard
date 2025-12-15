@@ -5,13 +5,11 @@ import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
 import CheckBox from '../../../../components/uiComponents/CheckBox';
 import { useNavigate } from 'react-router';
 
-
 const UserManagement = () => {
     const navigate = useNavigate();
     const [isChecked, setIsChecked] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = 2; // or calculate based on data length
-
     const columns = [
         { header: "ID", field: "id" },
         {
@@ -79,7 +77,6 @@ const UserManagement = () => {
         }
     ];
 
-
     return (
         <div className="min-h-screen p-2 md:p-2">
 
@@ -136,7 +133,7 @@ const UserManagement = () => {
                             <span className="whitespace-nowrap">Key word:</span>
                             <input
                                 type="text"
-                                className="bg-white border p-1 rounded w-full"
+                                className="bg-white border  rounded w-full"
                             />
                         </label>
 
@@ -150,17 +147,11 @@ const UserManagement = () => {
                         </div>
 
                         {/* Search Button */}
-                        <button
-                            className="
-        w-full lg:w-auto
-        px-4 py-2
-        bg-gray-200 hover:bg-gray-300
-        border rounded
-      "
-                        >
+                      <button className=" w-full lg:w-auto sm:px-4 lg:px-4 md:px-2 py-2 bg-gray-200 hover:bg-gray-300 border rounded block md:hidden lg:block">
                             Search
                         </button>
                     </div>
+                    
                 </div>
 
                 {/* Pagination */}

@@ -7,18 +7,15 @@ import FeedbackModal from "../feedback/FeedbackModel";
 function TopNavbar() {
     const navigate = useNavigate();
     const [openMenu, setOpenMenu] = useState(false);
-
     const [openFeedback, setOpenFeedback] = useState(false);
 
     return (
         <div className="bg-gray-300 shadow-sm border rounded mb-4">
             <div className="flex items-center justify-between px-3 py-2">
-
                 {/* LEFT SIDE: Logo + Menus */}
                 <div className="flex items-center gap-6">
                     {/* Logo */}
                     <div className="text-lg font-bold">LOGO</div>
-
                     {/* Desktop Menus */}
                     <div className="hidden md:flex items-center gap-6">
                         <HoverDropDown
@@ -34,7 +31,6 @@ function TopNavbar() {
                                 { name: "Login Confirmation", onClick: () => navigate("/settings/authentication_settings") },
                             ]}
                         />
-
                         <HoverDropDown
                             label="Service"
                             items={[
@@ -58,7 +54,6 @@ function TopNavbar() {
                         >
                             <MdFeedback size={18} /> Feedback
                         </button>
-
                         <FeedbackModal
                             open={openFeedback}
                             onClose={() => setOpenFeedback(false)}
@@ -145,7 +140,7 @@ function TopNavbar() {
 
 const MobileSection = ({ title, children }) => (
     <div>
-        <div className="font-semibold mb-2">{title}</div>
+        <div className="font-semibold mb-2 border">{title}</div>
         <div className="space-y-2">{children}</div>
     </div>
 );

@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 
 import DataTable from '../../../../components/uiComponents/DataTable';
 import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
+import { useNavigate } from 'react-router';
 
 function PaymentSystem() {
+  const navigate=useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 2; // or calculate based on data length
   const columns = [
@@ -63,7 +65,8 @@ function PaymentSystem() {
         <div className="mb-5 text-left">
           <div className="mb-2">Deposit of funds</div>
 
-          <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400">
+          <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400"
+          onClick={()=>navigate('/settings/merchants_edit/in/84')}>
             Add
           </button>
         </div>
@@ -84,7 +87,8 @@ function PaymentSystem() {
         <div className="mb-5 text-left">
           <div className="mb-2">Withdrawal</div>
 
-          <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400">
+          <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400"
+          onClick={()=>navigate('/settings/merchants_edit/out/85')}>
             Add
           </button>
         </div>

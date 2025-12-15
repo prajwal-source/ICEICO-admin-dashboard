@@ -48,7 +48,7 @@ const columns = [
         <Breadcrumb
           items={[
             { label: "Homepage", onClick: () => navigate("/service/user_manage") },
-            { label: "Setting" },
+            { label: "Settings" },
             { label: "Account Type" } // last one → inactive
           ]}
         />
@@ -64,10 +64,12 @@ const columns = [
 
         </div>
         <div className="mb-5 text-left flex gap-4">
-          <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400 cursor-pointer">
+          <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400 cursor-pointer"
+          onClick={()=>navigate('/settings/groups_create')}>
             Create
           </button>
-          <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400 cursor-pointer">
+          <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400 cursor-pointer"
+          onClick={()=>navigate('/settings/groups_connect')}>
             Connect
           </button>
         </div>

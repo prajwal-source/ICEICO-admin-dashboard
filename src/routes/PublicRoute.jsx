@@ -20,9 +20,18 @@ const Promotions=lazy(()=>import("../pages/modules/services/promotions/Promotion
 const Documents=lazy(()=>import('../pages/modules/setting/documents/Documents'))
 const CreateDocuments=lazy(()=>import('../pages/modules/setting/documents/CreateDocument'))
 const AdminsRoom=lazy(()=>import('../pages/modules/setting/admins-room/AdminsRoom'))
+
 const PaymentSystem=lazy(()=>import('../pages/modules/setting/payment-system/PaymentSystem'))
+const AddDepositOfFund=lazy(()=>import('../pages/modules/setting/payment-system/AddDepositOfFund'))
+const AddWithdrawal=lazy(()=>import('../pages/modules/setting/payment-system/AddWithdrawal'))
+
+
 const Servers=lazy(()=>import('../pages/modules/setting/servers/Servers'))
+const CreateServer=lazy(()=>import('../pages/modules/setting/servers/CreateServer'))
+
 const AccountType=lazy(()=>import('../pages/modules/setting/acount-type/AccountType'))
+const TypeOfAccountCreation=lazy(()=>import('../pages/modules/setting/acount-type/TypeOfAccountCreation'))
+const TypeOfAccountConnection=lazy(()=>import('../pages/modules/setting/acount-type/TypeOfAccountConnection'))
 const Language=lazy(()=>import('../pages/modules/setting/language/Language'))
 const PaymentMethods=lazy(()=>import('../pages/modules/setting/payment-methods/PaymentMethods'))
 const LoginConfirmation=lazy(()=>import('../pages/modules/setting/login-confirmation/LoginConfirmation'))
@@ -54,8 +63,16 @@ const PublicRoute = () => {
               <Route path="/settings/document_create" element={<CreateDocuments/>}/>
               <Route path="/settings/settings" element={<AdminsRoom/>}/>
               <Route path="/settings/merchants_manage" element={<PaymentSystem/>}/>
+              <Route path="/settings/merchants_edit/in/84" element={<AddDepositOfFund/>}/>
+              <Route path="/settings/merchants_edit/out/85" element={<AddWithdrawal/>}/>
+
+
               <Route path="/settings/servers_manage" element={<Servers/>}/>
+              <Route path="/settings/servers_create" element={<CreateServer/>}/>
               <Route path="/settings/types" element={<AccountType/>}/>
+              <Route path="/settings/groups_create" element={<TypeOfAccountCreation/>}/>
+              <Route path="/settings/groups_connect" element={<TypeOfAccountConnection/>}/>
+
               <Route path="/settings/languages_manage" element={<Language/>}/>
               <Route path="/settings/payment_methods" element={<PaymentMethods/>}/>
               <Route path="/settings/authentication_settings" element={<LoginConfirmation/>}/>
