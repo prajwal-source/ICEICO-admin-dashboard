@@ -41,7 +41,7 @@ function EmailTemplate() {
                     >
                         {/* Recipient */}
                         <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4 items-center">
-                            <label className="wrap-break-word">Recipient :</label>
+                            <label className="wrap-break-word">Recipient </label>
 
                             <select
                                 name="recipient"
@@ -54,7 +54,7 @@ function EmailTemplate() {
                         </div>
                         {/* Template */}
                         <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4 items-center">
-                            <label>Template :</label>
+                            <label>Template </label>
                             <select
                                 name="template"
                                 className="border w-full px-3 py-2 rounded bg-white"
@@ -65,22 +65,23 @@ function EmailTemplate() {
                             </select>
                         </div>
                         {/* Send letters */}
-                        <label className="flex items-center lg:ml-8 md:ml-5 sm:ml-2  gap-2 sm:gap-4 cursor-pointer ">
-                            <span>Send letters :</span>
-                             
+                         
+                        <label className="flex lg:pl-1 md:pl-1 sm:pl-2 items-center lg:ml-5 md:ml-5 sm:ml-5 gap-4 sm:gap-4 cursor-pointer">
+                            <span className='lg:pr-11 md:pr-11 '>Send letters </span>
                             <input
                                 type="checkbox"
                                 name="sendLetters"
                                 className="peer hidden"
                             />
-                             <span className="w-4 lg:ml-8 md:ml-10 sm:ml-1 h-4 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-xs" />
-                           
+                            <span
+                                className=" w-5 h-5  sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
+                            />
                         </label>
 
 
                         {/* Language */}
                         <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4 items-center">
-                            <label>Language :</label>
+                            <label>Language </label>
                             <select
                                 name="language"
                                 className="border w-full px-3 py-2 rounded bg-white"
@@ -90,7 +91,7 @@ function EmailTemplate() {
                         </div>
                         {/* Subject */}
                         <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4 items-center">
-                            <label>Subject :</label>
+                            <label>Subject </label>
                             <input
                                 name="subject"
                                 className="border w-full px-3 py-2 rounded bg-white"
@@ -99,7 +100,7 @@ function EmailTemplate() {
                         </div>
                         {/* Text */}
                         <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4">
-                            <label className="pt-2">Text :</label>
+                            <label className="pt-2">Text </label>
                             <textarea
                                 rows={8}
                                 onChange={(e) => setText(e.target.value)}

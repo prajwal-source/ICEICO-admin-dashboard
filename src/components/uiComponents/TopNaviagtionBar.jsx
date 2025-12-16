@@ -62,12 +62,12 @@ function TopNavbar() {
                             }}
                         />
 
-                        <button className="flex items-center gap-1 px-3 py-1 hover:bg-gray-400 rounded">
+                        <button className="flex items-center gap-1 px-3 py-1 hover:bg-gray-400 rounded"onClick={()=>navigate('/profile')}>
                             <MdPerson size={18} /> My Profile
                         </button>
 
                         <button className="p-2 hover:bg-gray-400 rounded">
-                            <MdLogout size={18} />
+                            <MdLogout size={18} onClick={()=>navigate('/')} />
                         </button>
                     </div>
 
@@ -123,11 +123,11 @@ function TopNavbar() {
                             }}
                         />
                         
-                        <button className="flex items-center gap-1">
-                            <MdPerson size={18} /> Profile
+                        <button className="flex items-center gap-1" >
+                            <MdPerson size={18} onClick={()=>navigate('/profile')}/> Profile
                         </button>
-                        <button className="flex items-center gap-1">
-                            <MdLogout size={18} /> Logout
+                        <button className="flex items-center gap-1" >
+                            <MdLogout size={18} onClick={()=>navigate('/')}/> Logout
                         </button>
                     </div>
                 </div>

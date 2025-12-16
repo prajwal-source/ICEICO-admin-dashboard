@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+
 import { useForm } from 'react-hook-form';
+import { MdHelpOutline } from 'react-icons/md';
+import CheckBox from '../../../../components/uiComponents/CheckBox';
 import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
 import { useNavigate } from 'react-router';
 
@@ -83,7 +86,16 @@ function TypeOfAccountConnection() {
                             <label className="sm:text-right">Server :</label>
                             <div>Server</div>
                         </div>
-                       
+                        {/* Currency */}
+                        <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
+                            <label className="sm:text-right">Currency :</label>
+                            <input
+                                type="text"
+                                name="name"
+                                className="border w-full px-3 py-2 rounded bg-white"
+                                placeholder='USD'
+                            />
+                        </div>
                         {/* Min deposi */}
                         <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
                             <label className="sm:text-right">Min deposite :</label>
@@ -94,20 +106,24 @@ function TypeOfAccountConnection() {
                                 placeholder=""
                             />
                         </div>
-                       
-                        {/* Account type on server */}
-                        <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
-                            <label className="sm:text-right">Account type on server :</label>
+
+
+                        {/* Hidden */}
+                        <label className="flex lg:pl-19 md:pl-19  sm:pl-2 items-center lg:ml-8 md:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                            <span className=''>Hidden :</span>
                             <input
-                                type="text"
-                                name="name"
-                                className="border w-full px-3 py-2 rounded bg-white"
-                                
+                                type="checkbox"
+                                name="sendLetters"
+                                className="peer hidden"
                             />
-                        </div>
+                            <span
+                                className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
+                            />
+                        </label>
+
 
                         {/* Show bonuses */}
-                        <label className="flex lg:pl-11 sm:pl-2 items-center lg:ml-5 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                        <label className="flex lg:pl-11 md:pl-11 sm:pl-2 items-center lg:ml-5 md:ml-5 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>Show bonuses :</span>
                             <input
                                 type="checkbox"
@@ -119,7 +135,7 @@ function TypeOfAccountConnection() {
                             />
                         </label>
                         {/* Demo*/}
-                       <label className="flex lg:pl-21 sm:pl-2 items-center lg:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                        <label className="flex lg:pl-21 sm:pl-2 md:pl-21 items-center lg:ml-8 md:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>Demo :</span>
                             <input
                                 type="checkbox"
@@ -140,8 +156,8 @@ function TypeOfAccountConnection() {
 
                             />
                         </div>
-                           {/* Trading permission on new accounts */}
-                         <label className="flex lg:pl-4 sm:pl-2 items-center lg:ml-5 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                        {/* Trading permission on new accounts */}
+                        <label className="flex lg:pl-4 md:pl-4 sm:pl-2 items-center lg:ml-5 md:ml-5 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>Trading permission :<br /> on new accounts </span>
                             <input
                                 type="checkbox"
@@ -153,7 +169,7 @@ function TypeOfAccountConnection() {
                             />
                         </label>
                         {/*Spend bonuses  */}
-                          <label className="flex lg:pl-10 sm:pl-2 items-center lg:ml-5 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
+                        <label className="flex lg:pl-10 md:pl-10 sm:pl-2 items-center lg:ml-5 md:ml-5 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>Spend bonuses :</span>
                             <input
                                 type="checkbox"
@@ -186,17 +202,10 @@ function TypeOfAccountConnection() {
                             </select>
                         </div>
                         {/*Hide leverage*/}
-                        <label className="flex lg:pl-12 sm:pl-2 items-center lg:ml-5 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
-                            <span className=''>Hide leverage :</span>
-                            <input
-                                type="checkbox"
-                                name="sendLetters"
-                                className="peer hidden"
-                            />
-                            <span
-                                className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
-                            />
-                        </label>
+                        <CheckBox
+                            label="Hide leverage :"
+                            name="hideLeverage"
+                        />
                         {/* Leverage  */}
                         <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
                             <label className="sm:text-right ">
@@ -214,7 +223,7 @@ function TypeOfAccountConnection() {
                                 type="submit"
                                 className="border px-6 py-2 rounded bg-gray-200 hover:bg-gray-300 cursor-pointer"
                             >
-                                Connect
+                                Save
                             </button>
                         </div>
 

@@ -92,7 +92,7 @@ function PaymentMethods() {
 
 
         {/* ================= LANGUAGE ================= */}
-        <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center mb-8">
+        <div className="grid grid-cols-1 md:flex  sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center mb-8">
           <label className="sm:text-right font-medium">Language :</label>
 
           <select className="border w-full sm:w-60 px-3 py-2 rounded bg-white">

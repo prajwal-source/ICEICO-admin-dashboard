@@ -4,9 +4,13 @@ import ProtectedRoute from "./ProtectedRoute";
 import DashboardLayout from "../components/layouts/DashboardLayout";
 
 
+
 // Lazy imports
 const Login = lazy(() => import("../pages/auth/Login"));
 
+// Profile
+const Profile = lazy(() => import("../pages/modules/profile/Profile"));
+const ChangePassword = lazy(() => import("../pages/modules/profile/ChangePassword"));
 // Service Routes
 const UserManagement = lazy(() => import("../pages/modules/services/users-management/UserManagement"));
 const CreateUser=lazy(()=> import('../pages/modules/services/users-management/CreateUser'))
@@ -77,6 +81,10 @@ const PublicRoute = () => {
               <Route path="/settings/payment_methods" element={<PaymentMethods/>}/>
               <Route path="/settings/authentication_settings" element={<LoginConfirmation/>}/>
               <Route path="/settings/authentication_settings/codes" element={<Codes/>}/>
+
+              {/* profile */}
+              <Route path="/profile" element={<Profile/>}/>
+              <Route path="/change_password" element={<ChangePassword/>}/>
           </Route>
 
         </Route>
