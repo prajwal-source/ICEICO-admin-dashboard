@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import CheckBox from '../../../../components/uiComponents/CheckBox';
 import { useNavigate } from 'react-router';
 import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
-
 function AddDepositOfFund() {
   const navigate = useNavigate();
   const [logoPreview, setLogoPreview] = useState(null);
@@ -18,7 +16,6 @@ function AddDepositOfFund() {
     if (!file) return;
     setLogoPreview(URL.createObjectURL(file)); // creates preview URL
   };
-
   const { register, setValue, handleSubmit } = useForm({
     defaultValues: {
       recipient: "All",
@@ -29,10 +26,9 @@ function AddDepositOfFund() {
       text: "",
     },
   });
- const onSubmit = (data) => {
+  const onSubmit = (data) => {
     console.log("Template Saved:", data);
   };
-
   const checkboxList = [
     "Password generation",
     "Confirmation of acceptance of each document",
@@ -58,7 +54,7 @@ function AddDepositOfFund() {
         items={[
           { label: "Homepage", onClick: () => navigate("/service/user_manage") },
           { label: "Settings" },
-          { label: "Payment System",onClick: () => navigate("/settings/merchants_manage") },
+          { label: "Payment System", onClick: () => navigate("/settings/merchants_manage") },
           { label: "Payment system 13 (Deposit of funds)" } // last one → inactive
         ]}
       />
@@ -71,7 +67,6 @@ function AddDepositOfFund() {
             Payment system 13 (Deposit of funds)
           </h2>
         </div>
-
         <div className="bg-gray-100  border rounded p-1 mb-4">
           <form
             onSubmit={handleSubmit}
@@ -80,9 +75,7 @@ function AddDepositOfFund() {
             <div className='border bg-gray-50 rounded pl-4'>Management</div>
             {/* ================= MAILING SERVICE ================= */}
             <div className="space-y-6 lg:ml-70 md:ml-5 sm:ml-5">
-
-                {/* Enabled */}
-
+              {/* Enabled */}
               <label className="flex lg:pl-23 sm:pl-2 items-center lg:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
                 <span className='font-medium'>Enabled :</span>
                 <input
@@ -94,7 +87,6 @@ function AddDepositOfFund() {
                   className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
                 />
               </label>
-
               {/* Disable Automatically */}
               <label className="flex lg:pl-2 sm:pl-2 items-center lg:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
                 <span className='font-medium'>Disable Automatically :</span>
@@ -107,7 +99,6 @@ function AddDepositOfFund() {
                   className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
                 />
               </label>
-
               {/* Mailing Service */}
               <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-4 items-center">
                 <label className="sm:text-right font-medium">
@@ -117,7 +108,6 @@ function AddDepositOfFund() {
                   <option>UniSender</option>
                 </select>
               </div>
-
               {/* API Key */}
               <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-4 items-center">
                 <label className="sm:text-right font-medium">
@@ -130,18 +120,13 @@ function AddDepositOfFund() {
                 />
               </div>
             </div>
-
             {/* Submit button */}
             <div className='flex justify-center gap-20 mt-10'>
-
               <button className='mb-20 border px-6 py-2 rounded bg-gray-200 hover:bg-gray-300'
                 onClick={() => navigate('/service/exchange-rates')}>
                 Save
               </button>
-
-
             </div>
-
           </form>
         </div>
       </div>

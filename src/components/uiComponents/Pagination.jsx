@@ -5,7 +5,6 @@ const Pagination = ({
     totalPages = 1,
     onPageChange,
 }) => {
-
     const handlePrev = () => {
         if (currentPage > 1) onPageChange(currentPage - 1);
     };

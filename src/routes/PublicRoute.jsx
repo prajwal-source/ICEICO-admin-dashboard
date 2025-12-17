@@ -3,11 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import DashboardLayout from "../components/layouts/DashboardLayout";
 
-
-
 // Lazy imports
 const Login = lazy(() => import("../pages/auth/Login"));
-
 // Profile
 const Profile = lazy(() => import("../pages/modules/profile/Profile"));
 const ChangePassword = lazy(() => import("../pages/modules/profile/ChangePassword"));
@@ -19,7 +16,6 @@ const ALAReport=lazy(()=>import("../pages/modules/services/ALA Report/ALAReport"
 const EmailTemplate=lazy(()=>import("../pages/modules/services/email-templates/EmailTemplate"));
 const Promotions=lazy(()=>import("../pages/modules/services/promotions/Promotions"));
 
-
 // Setting Routes
 const Documents=lazy(()=>import('../pages/modules/setting/documents/Documents'))
 const CreateDocuments=lazy(()=>import('../pages/modules/setting/documents/CreateDocument'))
@@ -28,7 +24,6 @@ const AdminsRoom=lazy(()=>import('../pages/modules/setting/admins-room/AdminsRoo
 const PaymentSystem=lazy(()=>import('../pages/modules/setting/payment-system/PaymentSystem'))
 const AddDepositOfFund=lazy(()=>import('../pages/modules/setting/payment-system/AddDepositOfFund'))
 const AddWithdrawal=lazy(()=>import('../pages/modules/setting/payment-system/AddWithdrawal'))
-
 
 const Servers=lazy(()=>import('../pages/modules/setting/servers/Servers'))
 const CreateServer=lazy(()=>import('../pages/modules/setting/servers/CreateServer'))
@@ -44,7 +39,6 @@ const Codes=lazy(()=>import('../pages/modules/setting/login-confirmation/Codes')
 const PublicRoute = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-
       <Routes>
         {/* Public Route */}
         <Route path="/" element={<Login />} />
@@ -70,7 +64,6 @@ const PublicRoute = () => {
               <Route path="/settings/merchants_edit/in/84" element={<AddDepositOfFund/>}/>
               <Route path="/settings/merchants_edit/out/85" element={<AddWithdrawal/>}/>
 
-
               <Route path="/settings/servers_manage" element={<Servers/>}/>
               <Route path="/settings/servers_create" element={<CreateServer/>}/>
               <Route path="/settings/types" element={<AccountType/>}/>
@@ -86,11 +79,8 @@ const PublicRoute = () => {
               <Route path="/profile" element={<Profile/>}/>
               <Route path="/change_password" element={<ChangePassword/>}/>
           </Route>
-
         </Route>
-
       </Routes>
-
     </Suspense>
   );
 };

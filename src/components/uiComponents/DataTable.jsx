@@ -3,7 +3,6 @@ import React from "react";
 const DataTable = ({ columns = [], data = [], actionLabel, onActionClick }) => {
     return (
         <div className="border rounded overflow-hidden w-full">
-
             {/* Desktop Table */}
             <table className="w-full border-collapse hidden md:table">
                 <thead className="bg-gray-200 border-b">
@@ -20,7 +19,6 @@ const DataTable = ({ columns = [], data = [], actionLabel, onActionClick }) => {
                         {actionLabel && <th className="px-3 py-2">{actionLabel}</th>}
                     </tr>
                 </thead>
-
                 <tbody>
                     {data.map((row, rowIndex) => (
                         <tr
@@ -83,7 +81,6 @@ const DataTable = ({ columns = [], data = [], actionLabel, onActionClick }) => {
                     </div>
                 ))}
             </div>
-
         </div>
     );
 };

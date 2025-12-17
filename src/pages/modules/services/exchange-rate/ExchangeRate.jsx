@@ -8,15 +8,12 @@ function ExchangeRate() {
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = 2; // or calculate based on data length
     const navigate=useNavigate();
-
     const columns = [
   { header: "Conversion From", field: "from" },
   { header: "Conversion To", field: "to" },
   { header: "Central Bank Rate", field: "bank_rate" },
   { header: "Self Rate", field: "note" },
 ];
-
-
     //    Dummy data
     const rows = [
         {
@@ -57,7 +54,6 @@ function ExchangeRate() {
             />
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
-
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <h2 className="text-3xl md:text-4xl font-semibold text-gray-700">
@@ -65,7 +61,6 @@ function ExchangeRate() {
                     </h2>
 
                 </div>
-
                 {/* Filter Section */}
                 <div className="bg-yellow-50 hover:bg-yellow-100 border rounded p-1 mb-6">
                     <span>Exchanges courses are applied only to cryptocurrencies</span>
@@ -83,10 +78,8 @@ function ExchangeRate() {
                 <DataTable
                     columns={columns}
                     data={rows}
-
                     onActionClick={(row) => console.log("Deleted:", row)}
                 />
-
                 {/* Pagination */}
                 <Pagination
                     currentPage={currentPage}
@@ -96,9 +89,7 @@ function ExchangeRate() {
                         setCurrentPage(page);
                     }}
                 />
-
             <button className='mb-20 border px-6 py-2 rounded bg-gray-200 hover:bg-gray-300' onClick={()=>navigate('/service/exchange-rates')}>Edit</button>
-
             </div>
         </div>
     )

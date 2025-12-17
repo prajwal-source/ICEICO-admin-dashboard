@@ -15,11 +15,8 @@ function Profile() {
             text: "",
         },
     });
-
-
     return (
         <div className="min-h-screen p-2 md:p-0">
-
             {/* Breadcrumb */}
             <Breadcrumb
                 items={[
@@ -27,10 +24,8 @@ function Profile() {
                     { label: "Profile" } // last one → inactive
                 ]}
             />
-
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
-
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <h2 className="text-3xl md:text-4xl font-semibold text-gray-700">
@@ -122,16 +117,12 @@ function Profile() {
                                 className="border w-full px-3 py-2 rounded bg-white"
                             />
                         </div>
-
                     </form>
-
                     <div className='border bg-gray-50 rounded pl-4 mt-1'>Contacts</div>
                     <form
                         onSubmit={handleSubmit}
                         className="space-y-6 p-4 sm:p-6 rounded w-full text-sm max-w-3xl mx-auto"
-                    >
-
-                        
+                    >   
                         {/* Phone */}
                         <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
                             <label className="sm:text-right">Phone </label>
@@ -142,7 +133,6 @@ function Profile() {
                                 placeholder=""
                             />
                         </div>
-
                          {/* Country  */}
                         <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
                             <label className="sm:text-right">
@@ -154,7 +144,6 @@ function Profile() {
                                 <option>Do not show</option>
                             </select>
                         </div>
-
                         {/* Region */}
                         <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
                             <label className="sm:text-right">Region </label>
@@ -195,7 +184,6 @@ function Profile() {
                                 placeholder=""
                             />
                         </div>
-
                           {/* Account activation */}
                         <label className="flex lg:pl-8 md:pl-8 sm:pl-2 items-center lg:ml-5 md:ml-5 sm:ml-1 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>Duplicate to email </span>
@@ -208,7 +196,6 @@ function Profile() {
                                 className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
                             />
                         </label>
-
                          <div className=" p-4 rounded max-w-3xl">
                             {/* Upload logo row */}
                             <div className="flex flex-col sm:flex-row  sm:gap-6">
@@ -230,7 +217,6 @@ function Profile() {
                             </div>
 
                         </div>
-
                         {/* Submit */}
                         <div className="flex justify-center pt-6">
                             <button
@@ -240,11 +226,8 @@ function Profile() {
                                 Edit
                             </button>
                         </div>
-
                     </form>
                 </div>
-
-
             </div>
         </div>
     )

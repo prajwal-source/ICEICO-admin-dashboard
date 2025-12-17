@@ -79,7 +79,6 @@ const UserManagement = () => {
 
     return (
         <div className="min-h-screen p-2 md:p-2">
-
             {/* Breadcrumb */}
             <Breadcrumb
                 items={[
@@ -88,23 +87,17 @@ const UserManagement = () => {
                     { label: "Users Management" } // last one → inactive
                 ]}
             />
-
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
-
-
-
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <h2 className="text-3xl md:text-4xl font-semibold text-gray-700">
                         Users management
                     </h2>
-
                     <button className="cursor-pointer px-4 py-2 bg-gray-200 rounded border hover:bg-gray-300" onClick={() => navigate('/service/users_create')}>
                         Create user
                     </button>
                 </div>
-
                 {/* Filter Section */}
                 <div className="bg-gray-100 border rounded p-3 mb-6">
                     <div
@@ -118,7 +111,6 @@ const UserManagement = () => {
                                 className="bg-white border p-1 rounded w-full"
                             />
                         </label>
-
                         {/* End */}
                         <label className="flex flex-col sm:flex-row gap-1 sm:gap-2">
                             <span className="whitespace-nowrap">End:</span>
@@ -127,7 +119,6 @@ const UserManagement = () => {
                                 className="bg-white border p-1 rounded w-full"
                             />
                         </label>
-
                         {/* Keyword */}
                         <label className="flex flex-col sm:flex-row gap-1 sm:gap-2">
                             <span className="whitespace-nowrap">Key word:</span>
@@ -136,7 +127,6 @@ const UserManagement = () => {
                                 className="bg-white border  rounded w-full"
                             />
                         </label>
-
                         {/* Checkbox */}
                         <div className="flex items-center">
                             <CheckBox
@@ -145,15 +135,12 @@ const UserManagement = () => {
                                 onChange={(e) => setIsChecked(e.target.checked)}
                             />
                         </div>
-
                         {/* Search Button */}
                       <button className=" w-full lg:w-auto sm:px-4 lg:px-4 md:px-2 py-2 bg-gray-200 hover:bg-gray-300 border rounded block md:hidden lg:block">
                             Search
                         </button>
                     </div>
-                    
                 </div>
-
                 {/* Pagination */}
                 <Pagination
                     currentPage={currentPage}
@@ -170,7 +157,6 @@ const UserManagement = () => {
                     actionLabel={true}
                     onActionClick={(row) => console.log("Deleted:", row)}
                 />
-
                 {/* Pagination */}
                 <Pagination
                     currentPage={currentPage}
@@ -180,8 +166,6 @@ const UserManagement = () => {
                         setCurrentPage(page);
                     }}
                 />
-
-
             </div>
         </div>
     );

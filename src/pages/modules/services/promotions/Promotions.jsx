@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import DataTable from '../../../../components/uiComponents/DataTable';
 import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
 import { useNavigate } from 'react-router';
@@ -14,8 +13,6 @@ function Promotions() {
             { header: "Central Bank Rate", field: "bank_rate" },
             { header: "Self Rate", field: "note" },
         ];
-    
-    
         //    Dummy data
         const rows = [
             {
@@ -55,18 +52,13 @@ function Promotions() {
             />
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
-
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <h2 className="text-3xl md:text-4xl font-semibold text-gray-700">
                         Promotions
                     </h2>
-
                 </div>
-
                 {/* Filter Section */}
-               
-            
                 {/* DataTable */}
                 <DataTable
                     columns={columns}
@@ -74,9 +66,6 @@ function Promotions() {
 
                     onActionClick={(row) => console.log("Deleted:", row)}
                 />
-
-             
-
             </div>
         </div>
   )

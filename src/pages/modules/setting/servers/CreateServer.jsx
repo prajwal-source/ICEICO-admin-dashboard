@@ -1,11 +1,9 @@
 import { useForm } from 'react-hook-form';
-import { MdHelpOutline } from 'react-icons/md';
 import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
 import { useNavigate } from 'react-router';
 
 function CreateServer() {
-    const navigate=useNavigate();
-
+    const navigate = useNavigate();
     const { register, setValue, handleSubmit } = useForm({
         defaultValues: {
             recipient: "All",
@@ -16,26 +14,23 @@ function CreateServer() {
             text: "",
         },
     });
-
     const onSubmit = (data) => {
         console.log("Template Saved:", data);
     };
 
     return (
         <div className="min-h-screen p-2 md:p-0">
-
             {/* Breadcrumb */}
             <Breadcrumb
                 items={[
                     { label: "Homepage", onClick: () => navigate("/service/user_manage") },
                     { label: "Settings" },
-                    { label: "Servers", onClick:()=>navigate("/settings/servers_manage") },
+                    { label: "Servers", onClick: () => navigate("/settings/servers_manage") },
                     { label: "Create Server" } // last one → inactive
                 ]}
             />
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
-
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <h2 className="text-3xl md:text-4xl font-semibold text-gray-700">
@@ -53,7 +48,6 @@ function CreateServer() {
                             <input
                                 name="subject"
                                 className="border w-full px-3 py-2 rounded bg-white"
-                          
                             />
                         </div>
                         {/* Subject */}
@@ -62,7 +56,6 @@ function CreateServer() {
                             <input
                                 name="API Url"
                                 className="border w-full px-3 py-2 rounded bg-white"
-                              
                             />
                         </div>
                         {/* Webhook IP */}
@@ -71,7 +64,6 @@ function CreateServer() {
                             <input
                                 name="subject"
                                 className="border w-full px-3 py-2 rounded bg-white"
-                          
                             />
                         </div>
                         {/* Private Token */}
@@ -80,7 +72,6 @@ function CreateServer() {
                             <input
                                 name="subject"
                                 className="border w-full px-3 py-2 rounded bg-white"
-                                
                             />
                         </div>
                         {/* Buttons */}
@@ -89,12 +80,11 @@ function CreateServer() {
                                 type="submit"
                                 className="border px-6 py-2 rounded bg-gray-200 hover:bg-gray-300"
                             >
-                               Create
+                                Create
                             </button>
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     )

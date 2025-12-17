@@ -5,8 +5,7 @@ import './App.css'
 import PublicRoute from "./routes/PublicRoute";
 
 function App() {
-
-
+  
   return (
     <>
     <Router>

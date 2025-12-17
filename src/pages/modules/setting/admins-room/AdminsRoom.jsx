@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router';
 
 function AdminsRoom() {
     const navigate = useNavigate();
-
     const { register, setValue, handleSubmit } = useForm({
         defaultValues: {
             recipient: "All",
@@ -16,7 +15,6 @@ function AdminsRoom() {
             text: "",
         },
     });
-
     const onSubmit = (data) => {
         console.log("Template Saved:", data);
     };
@@ -32,10 +30,8 @@ function AdminsRoom() {
                     { label: "Admins Room" } // last one → inactive
                 ]}
             />
-
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
-
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <h2 className="text-3xl md:text-4xl font-semibold text-gray-700">
@@ -47,8 +43,8 @@ function AdminsRoom() {
                     <form
                         onSubmit={handleSubmit}
                         className="space-y-6 p-4 sm:p-6 rounded w-full text-sm max-w-3xl mx-auto"
-                    >   
-                     <div className=" p-4 rounded max-w-3xl">
+                    >
+                        <div className=" p-4 rounded max-w-3xl">
                             {/* Logo row */}
                             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-6 mb-4">
                                 {/* Label */}
@@ -195,7 +191,6 @@ function AdminsRoom() {
                             </div>
 
                         </div>
-
                         {/*Password generation*/}
                         <label className="flex lg:pl-5.5 md:pl-5.5 sm:pl-2 items-center lg:ml-3 md:ml-3 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>Password generation </span>
@@ -232,7 +227,6 @@ function AdminsRoom() {
                                 className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
                             />
                         </label>
-
                         {/* The main page at the first log-in */}
                         <label className="flex lg:pl-3.5 md:pl-3.5 sm:pl-2 items-center lg:ml-5 md:ml-5 sm:ml-1 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>The main page at the <br /> first log-in </span>
@@ -245,7 +239,6 @@ function AdminsRoom() {
                                 className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
                             />
                         </label>
-
                         {/* Skip user account activation via emailn */}
                         <label className="flex lg:pl-9 md:pl-9 sm:pl-2 items-center lg:ml-3 md:ml-3 sm:ml-1 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>Skip user account <br /> activation via email </span>
@@ -294,7 +287,6 @@ function AdminsRoom() {
                                 className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
                             />
                         </label>
-
                         {/* Text */}
                         <div className="grid ml-5 grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4">
                             <label className="pt-2">Commercial block </label>
@@ -305,7 +297,6 @@ function AdminsRoom() {
 
                             />
                         </div>
-
                         {/* New request number */}
                         <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
                             <label className="sm:text-right">New request number </label>
@@ -326,7 +317,6 @@ function AdminsRoom() {
                                 placeholder="funds@rockfieldtrade.com"
                             />
                         </div>
-
                         {/* Confirmation of withdrawal by the trader */}
                         <label className="flex lg:pl-1 md:pl-1  sm:pl-2 items-center lg:ml-1 md:ml-1 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>Confirmation of withdrawal <br /> by the trader </span>
@@ -356,19 +346,17 @@ function AdminsRoom() {
                         </div>
 
                     </form>
-
                     <div className='border bg-gray-50 rounded pl-4 mt-1'>Settings</div>
                     <form
                         onSubmit={handleSubmit}
                         className="space-y-6 p-4 sm:p-6 rounded w-full text-sm max-w-3xl mx-auto"
                     >
-
-                        {/* Sttaus  */}
+                        {/* User verification */}
                         <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
                             <label className="sm:text-right">
                                 User verification
                             </label>
-                            <select className="border  sm:w-64 px-3 py-2 rounded bg-white">
+                            <select className="border w-full sm:w-64 px-3 py-2 rounded bg-white">
                                 <option>Without confirmation</option>
                                 <option>Account opening is disabled</option>
                                 <option>Trading and fund withdrawals are disabled</option>
@@ -376,7 +364,6 @@ function AdminsRoom() {
                                 <option>Deposits are disabled</option>
                             </select>
                         </div>
-
                         {/* Changing the phone number on request */}
                         <label className="flex lg:pl-7 md:pl-7  sm:pl-2 items-center lg:ml-1 md:ml-1 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>Changing the phone <br />number on request </span>
@@ -404,9 +391,8 @@ function AdminsRoom() {
                     <form
                         onSubmit={handleSubmit}
                         className="space-y-6 p-4 sm:p-6 rounded w-full text-sm max-w-3xl mx-auto"
-                    >   
-
-                       <div className=" p-4 rounded max-w-3xl">
+                    >
+                        <div className=" p-4 rounded max-w-3xl">
                             {/* Logo for emails */}
                             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-6 mb-4">
                                 {/* Label */}
@@ -544,8 +530,6 @@ function AdminsRoom() {
                                 placeholder=""
                             />
                         </div>
-
-
                         {/* Default currency  */}
                         <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
                             <label className="sm:text-right ">
@@ -566,11 +550,8 @@ function AdminsRoom() {
                                 Save
                             </button>
                         </div>
-
                     </form>
                 </div>
-
-
             </div>
         </div>
     )

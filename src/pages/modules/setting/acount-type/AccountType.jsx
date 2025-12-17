@@ -16,9 +16,6 @@ const columns = [
   { header: "Group Type", field: "groupType" },
   { header: "Currency", field: "currency" }
 ];
-
-
-
   //    Dummy data
   const rows = [
   {
@@ -52,16 +49,13 @@ const columns = [
             { label: "Account Type" } // last one → inactive
           ]}
         />
-
       {/* Main Box */}
       <div className="bg-white shadow-md rounded border px-4 py-3">
-
         {/* Title + Create User */}
         <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <h2 className="text-3xl md:text-4xl font-semibold text-gray-700">
             Account Type
           </h2>
-
         </div>
         <div className="mb-5 text-left flex gap-4">
           <button className="bg-gray-300 border px-12 py-1 rounded hover:bg-gray-400 cursor-pointer"
@@ -73,20 +67,15 @@ const columns = [
             Connect
           </button>
         </div>
-
         {/* DataTable */}
         <div className='mb-8'>
-
         <DataTable
           columns={columns}
           data={rows}
           actionLabel={true}
           onActionClick={(row) => console.log("Deleted:", row)}
-          
         />
-
         </div>
-        
       </div>
     </div>
   )

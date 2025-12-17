@@ -10,7 +10,6 @@ function SingleCheckbox({ label, checked, onChange }) {
       {label && (
         <span className="select-none">{label}</span>
       )}
-
       <input
         type="checkbox"
         checked={checked}

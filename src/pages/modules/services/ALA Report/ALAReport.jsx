@@ -12,8 +12,6 @@ function ALAReport() {
         { header: "Central Bank Rate", field: "bank_rate" },
         { header: "Self Rate", field: "note" },
     ];
-
-
     //    Dummy data
     const rows = [
         {
@@ -53,7 +51,6 @@ function ALAReport() {
             />
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
-
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <h2 className="text-3xl md:text-4xl font-semibold text-gray-700">
@@ -61,29 +58,22 @@ function ALAReport() {
                     </h2>
 
                 </div>
-
                 {/* Filter Section */}
                 {/* Info Section */}
                 <div
-                    className="bg-yellow-50 border rounded p-3 sm:p-4 
-             text-sm sm:text-base leading-relaxed 
-             hover:bg-yellow-100 mb-6 text-left"
+                    className="bg-yellow-50 border rounded p-3 sm:p-4   text-sm sm:text-base leading-relaxed   hover:bg-yellow-100 mb-6 text-left"
                 >
                     <p>
                         The report shows the number of active live accounts with the broker.
                     </p>
-
                     <p className="mt-2">
                         If a trader has made any trading operation or made a deposit within a month,
                         the account will be included in this report.
                     </p>
-
                     <p className="mt-2">
                         The data in the report is being updated every day.
                     </p>
                 </div>
-
-
                 {/* Pagination */}
                 <Pagination
                     currentPage={currentPage}
@@ -100,7 +90,6 @@ function ALAReport() {
 
                     onActionClick={(row) => console.log("Deleted:", row)}
                 />
-
                 {/* Pagination */}
                 <Pagination
                     currentPage={currentPage}
@@ -110,7 +99,6 @@ function ALAReport() {
                         setCurrentPage(page);
                     }}
                 />
-
             </div>
         </div>
     )

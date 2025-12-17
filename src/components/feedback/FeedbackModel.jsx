@@ -22,14 +22,12 @@ const FeedbackModal = ({ open, onClose, onSelect }) => {
     const [comment, setComment] = useState("");
     const [screenshot, setScreenshot] = useState(null);
     if (!open) return null;
-
     const handleSend = () => {
         const feedback = {
             rating: selected,
             comment,
             screenshot,
         };
-
         console.log("Feedback submitted:", feedback);
 
         onClose();  // close modal

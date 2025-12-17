@@ -10,7 +10,6 @@ const FormRow = ({ label, children }) => (
     {children}
   </div>
 );
-
 /* ---------- Section Wrapper ---------- */
 const Section = ({ title, children }) => (
   <>
@@ -161,7 +160,6 @@ function CreateUser() {
                 Create
               </button>
             </div>
-
           </form>
         </div>
       </div>

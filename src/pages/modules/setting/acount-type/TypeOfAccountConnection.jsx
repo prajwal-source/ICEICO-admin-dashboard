@@ -8,26 +8,21 @@ import { useNavigate } from 'react-router';
 
 function TypeOfAccountConnection() {
     const navigate = useNavigate();
-
     const checkboxList = [
         "Registration",
         "Account opening",
         "Account depositing",
         "Account depositing",
         "At the bottom on all the pages",
-
     ];
-
     const [checkedValues, setCheckedValues] = useState(
         Array(checkboxList.length).fill(false)
     );
-
     const handleCheckboxChange = (index) => {
         const updated = [...checkedValues];
         updated[index] = !updated[index];
         setCheckedValues(updated);
     };
-
     const { register, setValue, handleSubmit } = useForm({
         defaultValues: {
             recipient: "All",
@@ -38,7 +33,6 @@ function TypeOfAccountConnection() {
             text: "",
         },
     });
-
     const onSubmit = (data) => {
         console.log("Template Saved:", data);
     };
@@ -55,7 +49,6 @@ function TypeOfAccountConnection() {
                     { label: "Account type connection" } // last one → inactive
                 ]}
             />
-
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
 
@@ -70,7 +63,6 @@ function TypeOfAccountConnection() {
                         onSubmit={handleSubmit}
                         className="space-y-6 p-4 sm:p-6 rounded w-full text-sm max-w-3xl mx-auto"
                     >
-
                         {/* Name */}
                         <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
                             <label className="sm:text-right">Name :</label>
@@ -106,8 +98,6 @@ function TypeOfAccountConnection() {
                                 placeholder=""
                             />
                         </div>
-
-
                         {/* Hidden */}
                         <label className="flex lg:pl-19 md:pl-19  sm:pl-2 items-center lg:ml-8 md:ml-8 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>Hidden :</span>
@@ -120,8 +110,6 @@ function TypeOfAccountConnection() {
                                 className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
                             />
                         </label>
-
-
                         {/* Show bonuses */}
                         <label className="flex lg:pl-11 md:pl-11 sm:pl-2 items-center lg:ml-5 md:ml-5 sm:ml-2 gap-2 sm:gap-4 cursor-pointer">
                             <span className=''>Show bonuses :</span>
@@ -153,7 +141,6 @@ function TypeOfAccountConnection() {
                                 type="text"
                                 name="name"
                                 className="border w-full px-3 py-2 rounded bg-white"
-
                             />
                         </div>
                         {/* Trading permission on new accounts */}
@@ -180,7 +167,6 @@ function TypeOfAccountConnection() {
                                 className=" w-5 h-5 ml-auto sm:ml-0 border bg-white border-gray-400 rounded-sm flex items-center justify-center peer-checked:after:content-['✔'] peer-checked:after:text-black peer-checked:after:text-s "
                             />
                         </label>
-
                         {/* Stop out */}
                         <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-2 sm:gap-4 items-center">
                             <label className="sm:text-right">Stop out :</label>
@@ -226,11 +212,8 @@ function TypeOfAccountConnection() {
                                 Save
                             </button>
                         </div>
-
                     </form>
                 </div>
-
-
             </div>
         </div>
     )

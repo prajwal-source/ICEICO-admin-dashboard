@@ -10,13 +10,11 @@ function HoverDropDown({ label, items }) {
     }
     setOpen(true);
   };
-
   const handleLeave = () => {
     closeTimer.current = setTimeout(() => {
       setOpen(false);
     }, 150); // small delay = smooth UX
   };
-
   return (
     <div
       className="relative inline-block border bg-white rounded "
@@ -31,11 +29,10 @@ function HoverDropDown({ label, items }) {
         {label}
         <MdKeyboardArrowDown size={18} />
       </button>
-
       {/* Dropdown */}
       <div
         className={`
-          absolute left-0 mt-1 pl-4 pb-2 bg-black/70 text-gray-100 border rounded shadow-md
+          absolute left-0 mt-1 pl-4 pb-2 bg-black/70 text-white border rounded shadow-md
           min-w-[200px] z-50
           
           ${open ? "opacity-100 visible" : "opacity-0 invisible"}
@@ -45,7 +42,7 @@ function HoverDropDown({ label, items }) {
           <button
             key={index}
             onClick={item.onClick}
-            className="block w-full text-left px-3 py-2 hover:bg-black/90"
+            className="block w-full text-left px-3 py-2 hover:bg-black hover:rounded hover:font-medium"
           >
             {item.name}
           </button>

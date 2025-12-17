@@ -5,15 +5,12 @@ import Breadcrumb from '../../../../components/uiComponents/BreadCrumb';
 
 const Codes = () => {
     const navigate = useNavigate();
-
     const handleSetting = () => {
         navigate('/settings/authentication_settings')
     }
-
     const handleCodes = () => {
         navigate('/settings/authentication_settings/codes')
     }
-
     const columns = [
         { header: "ID", field: "id" },
         {
@@ -30,7 +27,6 @@ const Codes = () => {
         { header: "Registration date", field: "date" },
         { header: "Type", field: "type" },
         { header: "City", field: "city" },
-
     ];
     //    Dummy data
     const rows = [
@@ -46,10 +42,8 @@ const Codes = () => {
 
     ];
 
-
     return (
         <div className="min-h-screen p-2 md:p-0">
-
             <Breadcrumb
                 items={[
                     { label: "Homepage", onClick: () => navigate("/service/user_manage") },
@@ -57,11 +51,8 @@ const Codes = () => {
                     { label: "Codes" } // last one → inactive
                 ]}
             />
-
             {/* Main Box */}
             <div className="bg-white shadow-md rounded border px-4 py-3">
-
-
                 {/* Title + Create User */}
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <h2 className="text-3xl md:text-4xl font-semibold text-gray-700">
@@ -77,7 +68,6 @@ const Codes = () => {
                         Codes
                     </button>
                 </div>
-
                 {/* Filter Section */}
                 <div className="bg-gray-100 border rounded p-3 mb-6 ">
                     <div className="flex flex-wrap items-center text-center gap-2">
@@ -92,7 +82,6 @@ const Codes = () => {
                         </button>
                     </div>
                 </div>
-
                 {/* DataTable */}
                 <DataTable
                     columns={columns}
@@ -100,7 +89,6 @@ const Codes = () => {
                     actionLabel={true}
                     onActionClick={(row) => console.log("Deleted:", row)}
                 />
-
             </div>
         </div>
     );
