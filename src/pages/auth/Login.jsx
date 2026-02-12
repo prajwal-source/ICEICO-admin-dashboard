@@ -15,7 +15,6 @@ const loginSchema = z.object({
 
 const Login = () => {
     const navigate = useNavigate();
-
     const {
         register,
         handleSubmit,
@@ -23,11 +22,9 @@ const Login = () => {
     } = useForm({
         resolver: zodResolver(loginSchema),
     });
-
     const onSubmit = async (data) => {
         console.log("Login Data:", data);
-
-        // ✅ Dummy auth logic (replace with API)
+        // Dummy auth logic (replace with API)
         if (data.email === "admin@gmail.com" && data.password === "123456") {
             localStorage.setItem("isAuthenticated", "true");
             navigate("/service/user_manage");
@@ -54,23 +51,18 @@ const Login = () => {
                             Login to the Admin&apos;s Room
                         </h2>
                     </div>
-
                     {/* Content */}
                     <div className="px-6 py-8">
                         <form onSubmit={handleSubmit(onSubmit)}>
-
                             {/* FORM WRAPPER — changes direction on mobile */}
                             <div className="flex flex-col md:flex-row gap-8">
-
                                 {/* Left side */}
                                 <div className="flex-1 space-y-6">
-
                                     {/* Email */}
                                     <div className="flex md:items-start md:flex-row flex-col gap-3">
                                         <label className="w-24 text-sm text-gray-700 pt-1.5 md:text-right">
                                             Login or<br />Email
                                         </label>
-
                                         <div className="flex-1">
                                             <input
                                                 {...register("email")}
@@ -84,13 +76,11 @@ const Login = () => {
                                             )}
                                         </div>
                                     </div>
-
                                     {/* Password */}
                                     <div className="flex md:items-start md:flex-row flex-col gap-3">
                                         <label className="w-24 text-sm text-gray-700 pt-1.5 md:text-right">
                                             Password
                                         </label>
-
                                         <div className="flex-1">
                                             <input
                                                 type="password"
@@ -105,11 +95,9 @@ const Login = () => {
                                             )}
                                         </div>
                                     </div>
-
                                     {/* Submit Button */}
                                     <div className="flex md:flex-row flex-col items-start md:items-center gap-3">
                                         <div className="w-30 hidden md:block"></div>
-
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
@@ -125,7 +113,6 @@ const Login = () => {
                                     </div>
 
                                 </div>
-
                                 {/* Right side (Forgot Password) — moves down on mobile */}
                                 <div className="md:w-44 pt-1 md:pt-1">
                                     <a
@@ -138,16 +125,12 @@ const Login = () => {
                                         You can recover the password to your account.
                                     </p>
                                 </div>
-
                             </div>
-
                         </form>
                     </div>
-
                 </div>
             </div>
         </>
-
     );
 };
 
